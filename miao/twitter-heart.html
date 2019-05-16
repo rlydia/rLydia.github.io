@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./twitter-heart-csstest.css"> -->
+  <style>
+  input {
+    display: none;
+  }
+
+  input + label {
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid; */
+    background-image: url(https://cssanimation.rocks/images/posts/steps/heart.png);
+  }
+
+  input:checked +label {
+    background-position: -2800px 0;
+    transition: background-position 1s steps(28);
+  }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="heart">
+  <label for="heart"></label>
+</body>
+</html>

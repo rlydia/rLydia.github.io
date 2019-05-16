@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./radio-slider-test.css"> -->
+  <!-- <link rel="stylesheet" href="radio-slider-test2.css"> -->
+  <style>
+  .slider {
+    width: 1000px;
+    height: 380px;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    position: absolute;
+  }
+
+  .slider input {
+    display: none;
+  }
+
+  .slider .indicators label {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    position: relative;
+    top: 350px;
+    left: 93%;
+    border-radius: 100%;
+    z-index: 100;
+  }
+
+  .slider img {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+
+  .slider input:checked + img {
+    opacity: 1;
+    transition: 1.5s;
+  } 
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="indicators">
+      <label for="m1"></label>
+      <label for="m2"></label>
+      <label for="m3"></label>
+      <label for="m4"></label>
+      <label for="m5"></label>
+    </div>
+    <input checked type="radio" name="leo" id="m1">
+    <img src="https://i1.mifile.cn/a4/xmad_15566146318197_mAghl.jpg" alt="">
+    <input type="radio" name="leo" id="m2">
+    <img src="https://i1.mifile.cn/a4/xmad_15529884424562_HKYaG.jpg" alt="">
+    <input type="radio" name="leo" id="m3">
+    <img src="https://i1.mifile.cn/a4/xmad_15579184778872_ECdvK.jpg" alt="">
+    <input type="radio" name="leo" id="m4">
+    <img src="https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg" alt="">
+    <input type="radio" name="leo" id="m5">
+    <img src="https://i1.mifile.cn/a4/xmad_15476942061027_STEvM.jpg" alt="">
+
+  </div>
+</body>
+</html>

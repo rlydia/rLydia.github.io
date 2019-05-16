@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <!-- <link rel="stylesheet" href="./style2.css"> -->
+  <style>
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  ul li {
+    position: relative;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  
+  .nav > li {
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    float: left;
+  }
+  
+  li:hover {
+    background-color: rgba(0,0,255,0.1);
+    border: 1px solid rgba(0,0,255,0.4);
+  }
+  
+  ul ul::before {
+    content: ">";
+    position: absolute;
+    left: -1em;
+  }
+  
+  ul.nav > li > ul::before {
+    content: none;
+  }
+  
+  ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    pointer-events: none;
+  }
+  
+  ul.nav > li > ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  
+  ul ul li {
+    opacity: 0;
+    text-align: left;
+    padding-right: 40px;
+    padding-left: 5px;
+  }
+  
+  li:hover > ul > li {
+    opacity: 1;
+    transition: opacity 1.5s;
+    pointer-events: auto;
+  }
+  </style>
+</head>
+<body>
+  <ul class="nav">
+    <li>文件
+      <ul>
+        <li>新建文件</li>
+        <li>打开文件</li>
+        <li>打开文件夹</li>
+        <li>最近打开的文件夹</li>
+        <li>重新用...编码打开
+            <ul>
+                <li>西方语</li>
+                <li>阿拉伯语</li>
+                <li>希腊语</li>
+                <li>土耳其语</li>
+                <li>西欧语</li>
+              </ul>
+        </li>
+        <li>克隆文件</li>
+        <li>保存</li>
+        <li>以...编码保存</li>
+      </ul>
+    </li>
+    <li>编辑
+      <ul>
+        <li>整理选区</li>
+        <li>整理行</li>
+        <li>行排序</li>
+      </ul>
+    </li>
+    <li>选择</li>
+    <li>查找</li>
+    <li>视图</li>
+    <li>跳转</li>
+    <li>工具</li>
+    <li>项目</li>
+    <li>首选项</li>
+    <li>帮助</li>
+  </ul>
+</body>
+</html>
