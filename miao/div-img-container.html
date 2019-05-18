@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>div-img-container</title>
+  <!-- <link rel="stylesheet" href="./div-img-containertest.css"> -->
+  <style>
+  div {
+    width: 300px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  div img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+  }
+  
+  .contain {
+    width: 300px;
+    /* width: 600px; */
+    height: 400px;
+    border: 1px solid;
+    object-fit: contain;
+  }  
+  </style>
+</head>
+<body>
+  <div class="img1">
+    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1055075343,1935764551&fm=26&gp=0.jpg" alt="">
+  </div>
+  <br>
+  <div class="img2">
+    <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3519965424,149479943&fm=15&gp=0.jpg" alt="">
+  </div>
+  <br>
+  <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1558151737&di=24e725d790618267fb22ee66a44b3acb&src=http://b-ssl.duitang.com/uploads/item/201410/21/20141021103556_PeMA3.jpeg" alt="" class="contain">
+</body>
+</html>

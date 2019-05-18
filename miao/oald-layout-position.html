@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>oald-layout-position</title>
+  <!-- <link rel="stylesheet" href="./oald-layout-positiontest.css"> -->
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mainBody {
+    min-width: 500px;
+    position: relative;
+  } 
+  
+  .search, .vocabulary, .help {
+    box-sizing: border-box;
+    background-color: rgba(235, 238, 243);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3) ;
+    width: 20%;
+  }
+  
+  .search {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .sResult {
+    box-sizing: border-box;
+    position: absolute;
+    left: 20%;
+    top: 0;
+    display: inline-block;
+    width: 40%;
+    background-color: white;
+  }
+  
+  .vocabulary {
+    position: absolute;
+    right: 20%;
+    top: 0;
+  }
+  
+  .help {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  </style>
+</head>
+<body>
+  <div class="mainBody">
+    <div class="search"></div>
+    <div class="sResult"></div>
+    <div class="vocabulary"></div>
+    <div class="help"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>absolute-center</title>
+  <!-- <link rel="stylesheet" href="./abs-centertest.css"> -->
+  <style>
+   /*行内 居中*/
+  .center1 {
+    text-align: center;
+    width: 100%;
+    height: 300px;
+    line-height: 300px;
+    border: 2px solid;
+    font-size: 0;
+    margin-bottom: 20px;
+  }
+  
+  .center1 section {
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 400px;
+    background-color: #87ff6a;  
+  }
+  
+  /*定位 居中*/
+  .center2 {
+    width: 100%;
+    height: 300px;
+    border: 2px solid;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  
+  .center2 section {
+    background-color: #87ff6a;
+    width: 400px;
+    height: 90px;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 45px);
+  } 
+  </style>
+</head>
+<body>
+  <div class="center1">
+    <section>inline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-blockinline-block</section>
+  </div>
+  <div class="center2">
+    <section>absolute-center</section>
+  </div>
+</body>
+</html>
