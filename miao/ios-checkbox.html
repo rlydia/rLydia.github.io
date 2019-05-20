@@ -16,18 +16,18 @@
     display: block;
     width: 90px;
     height: 50px;
-    /* border:1px solid; */
+    border: rgba(0, 0, 0, 0.08) solid 1px;
     border-radius: 80px;
     background-color: rgba(221, 221, 221, 0.4);
-    box-shadow: rgba(221, 221, 221, 0.7) 0 0 10px 10px inset;
+    box-shadow: rgba(221, 221, 221, 0.7) 0 0 0 0 inset;
     position: relative;
-    transition:0.1s;
+    transition:0.6s;
   }
   
   input:checked + label {
-    background-color: rgb(110, 221, 94, 0.8);
-    border-color: rgb(110, 221, 94, 1);
-    box-shadow: rgba(108, 221, 91, 0.8) 0 0 10px 10px inset;
+    /* background-color: rgb(110, 221, 94, 0.8); */
+    border-color: #30f34c;
+    box-shadow: #30f34c 0 0 0 25px inset;
   }
   
   input + label::before {
@@ -40,7 +40,7 @@
     position: absolute;
     top: 4px;
     left: 5px;
-    transition:0.3s;
+    transition:0.6s;
   }
   
   input:checked + label::before {

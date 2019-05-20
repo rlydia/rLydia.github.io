@@ -19,7 +19,7 @@
     display: none;
   }
 
-  .slider .indicators label {
+  .slider label {
     display: inline-block;
     width: 5px;
     height: 5px;
@@ -38,35 +38,48 @@
     height: 100%;
     position: absolute;
     top: 0;
+    left: 0;
     z-index: 1;
   }
 
   .slider input:checked + img {
     opacity: 1;
     transition: 1.5s;
-  } 
+  }
+
+  .slider input:checked + img + label {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
   </style>
 </head>
 <body>
   <div class="slider">
-    <div class="indicators">
+    <!-- <div class="indicators">
       <label for="m1"></label>
       <label for="m2"></label>
       <label for="m3"></label>
       <label for="m4"></label>
       <label for="m5"></label>
-    </div>
+    </div> -->
     <input checked type="radio" name="leo" id="m1">
     <img src="https://i1.mifile.cn/a4/xmad_15566146318197_mAghl.jpg" alt="">
+    <label for="m1"></label>
+
     <input type="radio" name="leo" id="m2">
     <img src="https://i1.mifile.cn/a4/xmad_15529884424562_HKYaG.jpg" alt="">
+    <label for="m2"></label>
+
     <input type="radio" name="leo" id="m3">
     <img src="https://i1.mifile.cn/a4/xmad_15579184778872_ECdvK.jpg" alt="">
+    <label for="m3"></label>
+
     <input type="radio" name="leo" id="m4">
     <img src="https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg" alt="">
+    <label for="m4"></label>
+
     <input type="radio" name="leo" id="m5">
     <img src="https://i1.mifile.cn/a4/xmad_15476942061027_STEvM.jpg" alt="">
-
+    <label for="m5"></label>
   </div>
 </body>
 </html>
