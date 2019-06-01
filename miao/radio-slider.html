@@ -6,30 +6,38 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <!-- <link rel="stylesheet" href="./radio-slider-test.css"> -->
-  <!-- <link rel="stylesheet" href="radio-slider-test2.css"> -->
   <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   .slider {
     width: 1000px;
     height: 380px;
-    border: 2px solid rgba(0, 0, 0, 0.4);
-    position: absolute;
+    position: relative;
+    margin: auto;
   }
 
   .slider input {
     display: none;
   }
 
-  .slider label {
+  .slider .indicators label {
     display: inline-block;
-    width: 5px;
-    height: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    width: 10px;
+    height: 10px;
+    border: solid 1px black;
     cursor: pointer;
     position: relative;
     top: 350px;
-    left: 93%;
+    left: 90%;
     border-radius: 100%;
-    z-index: 100;
+    /* z-index: 1; */
+  }
+
+  .slider .indicators label:hover {
+    background-color: rgba(0, 0, 0, 0.8);
   }
 
   .slider img {
@@ -39,7 +47,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    /* z-index: 1; */
   }
 
   .slider input:checked + img {
@@ -47,39 +55,88 @@
     transition: 1.5s;
   }
 
-  .slider input:checked + img + label {
+  .slider input:nth-of-type(1):checked ~  .indicators label:nth-of-type(1),
+  .slider input:nth-of-type(2):checked ~  .indicators label:nth-of-type(2),
+  .slider input:nth-of-type(3):checked ~  .indicators label:nth-of-type(3),
+  .slider input:nth-of-type(4):checked ~  .indicators label:nth-of-type(4),
+  .slider input:nth-of-type(5):checked ~  .indicators label:nth-of-type(5) {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .left, .right{
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 80px;
     background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 80px;
+  }
+
+  .left {
+    left: 0;
+    top: 40%;
+  }
+
+  .right {
+    right: 0;
+    top: 40%;
+  }
+
+  .left:hover, .right:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .left > label, .right > label {
+    font-size: 2em;
+    color: rgba(0, 0, 0, 0.7);
+    display: none;
+    cursor: pointer;
+  }
+
+  .slider input:nth-of-type(1):checked ~ .left >  label:nth-child(5), .slider input:nth-of-type(2):checked ~ .left > label:nth-child(1),  .slider input:nth-of-type(3):checked ~ .left >  label:nth-child(2), .slider input:nth-of-type(4):checked ~ .left > label:nth-child(3),  .slider input:nth-of-type(5):checked ~ .left >  label:nth-child(4) {
+    display: block;
+  }
+
+  .slider input:nth-of-type(1):checked ~ .right>  label:nth-child(2), .slider input:nth-of-type(2):checked ~ .right> label:nth-child(3),  .slider input:nth-of-type(3):checked ~ .right>  label:nth-child(4), .slider input:nth-of-type(4):checked ~ .right> label:nth-child(5),  .slider input:nth-of-type(5):checked ~ .right>  label:nth-child(1) {
+    display: block;
   }
   </style>
 </head>
 <body>
   <div class="slider">
-    <!-- <div class="indicators">
+    <input checked type="radio" name="leo" id="m1">
+    <img src="https://i1.mifile.cn/a4/xmad_15566146318197_mAghl.jpg" alt="">
+    <input type="radio" name="leo" id="m2">
+    <img src="https://i1.mifile.cn/a4/xmad_15529884424562_HKYaG.jpg" alt="">
+    <input type="radio" name="leo" id="m3">
+    <img src="https://i1.mifile.cn/a4/xmad_15579184778872_ECdvK.jpg" alt="">
+    <input type="radio" name="leo" id="m4">
+    <img src="https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg" alt="">
+    <input type="radio" name="leo" id="m5">
+    <img src="https://i1.mifile.cn/a4/xmad_15476942061027_STEvM.jpg" alt="">
+
+    <div class="indicators">
       <label for="m1"></label>
       <label for="m2"></label>
       <label for="m3"></label>
       <label for="m4"></label>
       <label for="m5"></label>
-    </div> -->
-    <input checked type="radio" name="leo" id="m1">
-    <img src="https://i1.mifile.cn/a4/xmad_15566146318197_mAghl.jpg" alt="">
-    <label for="m1"></label>
-
-    <input type="radio" name="leo" id="m2">
-    <img src="https://i1.mifile.cn/a4/xmad_15529884424562_HKYaG.jpg" alt="">
-    <label for="m2"></label>
-
-    <input type="radio" name="leo" id="m3">
-    <img src="https://i1.mifile.cn/a4/xmad_15579184778872_ECdvK.jpg" alt="">
-    <label for="m3"></label>
-
-    <input type="radio" name="leo" id="m4">
-    <img src="https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg" alt="">
-    <label for="m4"></label>
-
-    <input type="radio" name="leo" id="m5">
-    <img src="https://i1.mifile.cn/a4/xmad_15476942061027_STEvM.jpg" alt="">
-    <label for="m5"></label>
+    </div>
+    <div class="left">
+      <label for="m1">&lt;</label>
+      <label for="m2">&lt;</label>
+      <label for="m3">&lt;</label>
+      <label for="m4">&lt;</label>
+      <label for="m5">&lt;</label>
+    </div>
+    <div class="right">
+      <label for="m1">&gt;</label>
+      <label for="m2">&gt;</label>
+      <label for="m3">&gt;</label>
+      <label for="m4">&gt;</label>
+      <label for="m5">&gt;</label>
+    </div>
   </div>
 </body>
 </html>
