@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bootstrap-table</title>
+  <style>
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table td,
+    .table th {
+      text-align: left;
+      padding: 10px 20px;
+    }
+
+    .table thead tr {
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    .table tbody tr {
+      border-top: 1px solid #dee2e6;
+    }
+
+    .table-dark {
+      color: white;
+      background-color: #343a40;
+    }
+
+    .table-dark thead tr {
+      border-bottom-color: #454d55;
+    }
+
+    .table-dark tbody tr {
+      border-top-color: #454d55;
+    }
+
+    .table-striped tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: #ececec;
+    }
+
+    .table-dark.table-striped tbody tr:nth-child(odd) {
+      background-color: #3e444a;
+    }
+
+    .table-dark.table-hover tbody tr:hover{
+      background-color: #43494e;
+    }
+
+    .table-bordered td,
+    .table-bordered th{
+      border: 1px solid #dee2e6;
+    }
+
+    .table-dark.table-bordered td,
+    .table-dark.table-bordered th {
+      border-color: #454d55;
+    }
+
+    .table-borderless thead tr,
+    .table-borderless tbody tr{
+          border:none;
+    }
+
+    /* Contextual classes */
+    .table-active td, .table-active th {
+        background-color: rgb(218, 218, 218);
+    }
+    .table-default td, .table-default th {
+        background-color: rgb(255, 255, 255);
+    }
+    .table-primary td, .table-primary th {
+        background-color: rgb(184, 218, 255);
+    }
+    .table-secondary td, .table-secondary th{
+        background-color: rgb(214, 216, 219);
+    }
+    .table-success td, .table-success th {
+        background-color: rgb(195, 230, 203);
+    }
+    .table-danger td, .table-danger th {
+        background-color: rgb(245, 198, 203);
+    }
+    .table-warning td, .table-warning th {
+        background-color: rgb(255, 238, 186);
+    }
+    .table-info td, .table-info th {
+        background-color: rgb(190, 229, 235);
+    }
+    .table-light td, .table-light th {
+        background-color: rgb(253, 253, 254);
+    }
+    .contextual .table-dark td, .contextual .table-dark th {
+        background-color: rgb(198, 200, 202);
+    }
+  </style>
+</head>
+<body>
+  <table class="table table-striped table-dark table-hover table-bordered xtable-borderless">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr> 
+    </tbody>
+  </table>
+
+  <br><br><br>
+  <!-- Contextual classes -->
+  <table class="table table-bordered contextual">
+      <thead>
+          <tr>
+              <th>Class</th>
+              <th>Heading</th>
+              <th>Heading</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="table-active">
+              <th>Active</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-default">
+              <th>Default</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-primary">
+              <th>Primary</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-secondary">
+              <th>Secondary</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-success">
+              <th>Success</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-danger">
+              <th>Danger</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-warning">
+              <th>Warning</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-info">
+              <th>Info</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-light">
+              <th>Light</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+          <tr class="table-dark">
+              <th>Dark</th>
+              <td>cell</td>
+              <td>cell</td>
+          </tr>
+      </tbody>
+  </table>  
+</body>
+</html>
