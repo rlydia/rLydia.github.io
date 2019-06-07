@@ -1,0 +1,19 @@
+body {
+  background-color: #ffd748;
+  border: 2px solid black;
+}
+
+h2 {
+  background-color: yellowgreen;
+}
+
+button {
+  display: block;
+  margin: 50px auto;
+  background-color: #ff3d2e;
+  border-radius: 8px;
+  color: white;
+  width: 160px;
+  height: 50px;
+  border: none;
+}

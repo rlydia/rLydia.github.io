@@ -1,0 +1,172 @@
+[data-balloon] {
+  position: relative;
+  cursor: pointer;
+}
+
+[data-balloon]::before {
+  content: attr(data-balloon);
+  position: absolute;
+  background-color: black;
+  padding: 0.3em 0.6em;
+  border-radius: 0.3em;
+  transition: .3s;
+  opacity: 0;
+  color: white;
+
+  /*让Length中的fit宽度与父元素一样宽*/
+  box-sizing: border-box;
+  /* 屏蔽鼠标事件 */
+  pointer-events: none;
+}
+
+[data-balloon]::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid black;
+  transition: .3s;
+  opacity: 0;
+  /* 屏蔽鼠标事件 */
+  pointer-events: none;
+}
+
+[data-balloon]:hover::before,
+[data-balloon]:hover::after {
+  opacity: 1;
+}
+
+/* 无pos属性时 */
+[data-balloon]:not([data-balloon-pos])::before {
+  left: 50%;
+  transform: translatex(-50%) translatey(8px);
+  bottom: 100%;
+}
+
+[data-balloon]:not([data-balloon-pos]):hover::before {
+  transform: translatex(-50%) translatey(-8px);
+}
+
+[data-balloon]:not([data-balloon-pos])::after {
+  left: 50%;
+  transform: translatex(-50%);
+  top: 8px;
+  border-color: black transparent transparent;
+}
+
+[data-balloon]:not([data-balloon-pos]):hover::after {
+  top: -8px;
+}
+/* 无pos属性结束 */
+
+
+/*Positioning*/
+[data-balloon-pos="up"]::before {
+  left: 50%;
+  transform: translatex(-50%) translatey(8px);
+  bottom: 100%;
+}
+
+[data-balloon-pos="down"]::before {
+  left: 50%;
+  transform: translatex(-50%) translatey(-8px);
+  top: 100%;
+}
+
+[data-balloon-pos="left"]::before {
+  top: 50%;
+  transform: translatey(-50%) translatex(8px);
+  right: 100%;
+}
+
+[data-balloon-pos="right"]::before {
+  top: 50%;
+  transform: translatey(-50%) translatex(-8px);
+  left: 100%;
+}
+
+
+[data-balloon-pos="up"]::after {
+  left: 50%;
+  transform: translatex(-50%);
+  top: 8px;
+  border-color: black transparent transparent;
+}
+
+[data-balloon-pos="down"]::after {
+  left: 50%;
+  transform: translatex(-50%);
+  bottom: 8px;
+  border-color: transparent transparent black transparent;
+}
+
+[data-balloon-pos="left"]::after {
+  top: 50%;
+  transform: translatey(-50%);
+  left: 8px;
+  border-color: transparent transparent transparent black;
+}
+
+[data-balloon-pos="right"]::after {
+  top: 50%;
+  transform: translatey(-50%);
+  right: 8px;
+  border-color: transparent black transparent transparent;
+}
+
+
+/*Positioning-hover状态时*/
+[data-balloon-pos="up"]:hover::before {
+  transform: translatex(-50%) translatey(-8px);
+}
+[data-balloon-pos="up"]:hover::after {
+  top: -8px;
+}
+
+[data-balloon-pos="down"]:hover::before {
+  transform: translatex(-50%) translatey(8px);
+}
+[data-balloon-pos="down"]:hover::after {
+  bottom: -8px;
+}
+
+[data-balloon-pos="left"]:hover::before {
+  transform:  translatey(-50%) translatex(-8px);
+}
+[data-balloon-pos="left"]:hover::after {
+  left: -8px;
+}
+
+[data-balloon-pos="right"]:hover::before {
+  transform: translatey(-50%) translatex(8px);
+}
+[data-balloon-pos="right"]:hover::after {
+  right: -8px;
+}
+/*Positioning-hover状态结束*/
+/*Positioning结束*/
+
+
+/*Length开始*/
+[data-balloon-size="small"]::before {
+  white-space: normal;
+  width: 80px;
+}
+
+[data-balloon-size="medium"]::before {
+  white-space: normal;
+  width: 150px;
+}
+[data-balloon-size="large"]::before {
+  white-space: normal;
+  width: 260px;
+}
+[data-balloon-size="xlarge"]::before {
+  white-space: normal;
+  width: 380px;
+}
+[data-balloon-size="fit"]::before {
+  white-space: normal;
+  width: 100%;
+}
+/*Length 结束*/
