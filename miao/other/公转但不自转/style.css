@@ -1,0 +1,91 @@
+/* *{
+  background-color: rgba(0,0,0,0.08);
+}  */
+
+body {
+  height: 1000px;
+}
+
+div {
+  width: 50px;
+  height: 50px;
+  background-image: url(http://pic.90sjimg.com/design/00/64/37/06/5926b7177d878.png);
+  background-size: contain;
+}
+
+/*第一种做法(两个元素)*/
+section {
+  width: 200px;
+  height: 200px;
+  margin: 80px;
+  /* background-color: rgba(0,0,0,0.1); */
+  animation: rotate-clockwise 6s infinite linear;
+}
+
+div.smile1 {
+  animation: rotate-counterclockwise 6s infinite linear;
+}
+
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-counterclockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+
+}
+
+
+/*第二种做法（一个元素 r-t-r）*/
+div.smile2 {
+  margin: 110px;
+  animation: rotate 6s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(100px) rotate(-0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(100px) rotate(-360deg);   
+  }
+}
+
+
+/*第三种做法（一个元素-贝塞尔曲线 正弦/余弦运动）*/
+div.smile3 {
+  margin: 110px;
+  position: relative;
+  /*1.5s负的延迟时间 为周期的一半：水平方向上 正弦 --> 垂直方向上 余弦*/
+  animation: hor infinite 3s alternate cubic-bezier(.36, 0, .64, 1), ver infinite 3s -1.5s alternate cubic-bezier(.36, 0, .64, 1);
+}
+
+@keyframes hor {
+  from {
+    left: -100px;
+    /* transform: translatex(-100px); */
+  }
+  to {
+    left: 100px;
+    /* transform: translatex(100px); */
+  }
+}
+
+@keyframes ver {
+  from {
+   top: 100px;
+  }
+  to {
+   top: -100px;
+  }
+}

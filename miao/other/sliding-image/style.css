@@ -1,0 +1,139 @@
+body {
+  background-color: rgba(234, 239, 245, 0.8);
+}
+
+.container {
+  width: 660px;
+  height: 500px; 
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border: 15px solid #fff;
+  box-shadow: 0 0 3px 1px #ccc; 
+}
+
+header {
+  position: relative;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 30px;
+  color: rgba(44, 120, 158, 0.9);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  position: relative;
+  padding: 0px 0px 5px 0px;
+}
+
+.part-one div:nth-child(1), .part-two div:nth-child(1), .part-three div:nth-child(1), .part-four div:nth-child(1) {
+  background-image: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3625768646,634461754&fm=26&gp=0.jpg);
+}
+
+.part-one div:nth-child(2), .part-two div:nth-child(2), .part-three div:nth-child(2), .part-four div:nth-child(2) {
+  background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559961509596&di=01cdd731bb6ef10d8a7b835fd56c41f6&imgtype=jpg&src=http%3A%2F%2Fimg1.doubanio.com%2Fview%2Fphoto%2Fl%2Fpublic%2Fp1563064729.jpg);
+}
+
+.part-one div:nth-child(3), .part-two div:nth-child(3), .part-three div:nth-child(3), .part-four div:nth-child(3) {
+  background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559960658879&di=ae72026e13d4f0556bca1b46b6e311a4&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20150128%2Fmp726809_1422446966098_2.jpeg);
+}
+
+.part-one div:nth-child(4), .part-two div:nth-child(4), .part-three div:nth-child(4), .part-four div:nth-child(4) {
+  background-image: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3582468406,741991278&fm=27&gp=0.jpg);
+}
+
+.part, .part div {
+  width: 165px;
+  height: 460px;
+  position: relative;
+  overflow: hidden;
+  float: left;
+}
+
+.part-one div {
+  background-position: 0;
+}
+
+.part-two div {
+  background-position: -165px;
+}
+
+.part-three div {
+  background-position: -330px;
+}
+
+.part-four div {
+  background-position: -495px;
+}
+
+.part div {
+  position: absolute;
+  background-size: 660px 460px;
+  background-repeat: no-repeat;
+  left: -165px;
+  transition: left .5s ease-in-out;
+  animation: leave .5s ease-in-out;
+  /* z-index: 0; */
+  border-left: .5px solid #ffffff9f;
+}
+
+input:nth-of-type(1):checked ~ div.part div:nth-child(1), 
+input:nth-of-type(2):checked ~ div.part div:nth-child(2), 
+input:nth-of-type(3):checked ~ div.part div:nth-child(3), 
+input:nth-of-type(4):checked ~ div.part div:nth-child(4) {
+  left: 0px;
+  animation: none;
+  z-index: 1;
+}
+
+@keyframes leave {
+  from {
+    left: 0;
+  }
+  to {
+    left: 165px;
+  }
+}
+
+.bt {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.bt div {
+  flex: 1;
+  text-align: center;
+  line-height: 50px;
+}
+
+label {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  border: 4px solid #9a9a9a;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 32px;
+  text-align: center;
+  color: #fff;
+  background-color: rgb(72, 177, 247);
+}
+
+label:hover {
+  background-color: #fff;
+  color: rgb(72, 177, 247);
+}
+
+input:nth-of-type(1):checked ~ .bt div:nth-child(1) label, input:nth-of-type(2):checked ~ .bt div:nth-child(2) label, input:nth-of-type(3):checked ~ .bt div:nth-child(3) label, input:nth-of-type(4):checked ~ .bt div:nth-child(4) label {
+  background-color: #fff;
+  color: rgb(72, 177, 247);
+}

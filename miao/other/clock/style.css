@@ -1,0 +1,223 @@
+.clock {
+  width: 400px;
+  height: 400px;
+}
+
+.clock-1 {
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  box-shadow: -10px 8px 10px 2px #ccc;
+  margin-left: 50px;
+}
+
+.clock-2 {
+  position: relative;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 2px #ccc;
+  margin-left: 600px;
+}
+
+.clock * {
+  position: absolute;
+}
+
+.clock-1 .plat {
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 40px -4px #ccc inset;
+}
+
+
+/*以下代码clock1和clock共用*/
+.clock .number {
+  transition: .8s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+
+.clock .h1 {
+  /*这里的transform会将前面.number的transform: translate(-50%, -50%);覆盖， 需再加上*/
+  transform: translate(-50%, -50%) rotate(-60deg) translate(150px) rotate(60deg);
+}
+
+.clock .h2 {
+  transform: translate(-50%, -50%) rotate(-30deg) translate(150px) rotate(30deg);
+}
+
+.clock .h3 {
+  transform: translate(-50%, -50%) rotate(0deg) translate(150px) rotate(0deg);
+}
+
+.clock .h4 {
+  transform: translate(-50%, -50%) rotate(30deg) translate(150px) rotate(-30deg);
+}
+
+.clock .h5 {
+  transform: translate(-50%, -50%) rotate(60deg) translate(150px) rotate(-60deg);
+}
+
+.clock .h6 {
+  transform: translate(-50%, -50%) rotate(90deg) translate(150px) rotate(-90deg);
+}
+
+.clock .h7 {
+  transform: translate(-50%, -50%) rotate(120deg) translate(150px) rotate(-120deg);
+}
+
+.clock .h8 {
+  transform: translate(-50%, -50%) rotate(150deg) translate(150px) rotate(-150deg);
+}
+
+.clock .h9 {
+  transform: translate(-50%, -50%) rotate(180deg) translate(150px) rotate(-180deg);
+}
+
+.clock .h10 {
+  transform: translate(-50%, -50%) rotate(210deg) translate(150px) rotate(-210deg);
+}
+
+.clock .h11 {
+  transform: translate(-50%, -50%) rotate(240deg) translate(150px) rotate(-240deg);
+}
+
+.clock .h12 {
+  transform: translate(-50%, -50%) rotate(270deg) translate(150px) rotate(-270deg);
+}
+
+.clock .dir {
+  /*这里的宽高都可设为0*/
+  width: 10px;
+  height: 10px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.clock .hour, .clock .min, .clock .sec {
+  /*斜杠前 水平方向，斜杠后 垂直方向*/
+  border-radius: 50% 50%  0 0 / 20% 20% 0 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.clock .dir-h {
+  animation: time 43200s steps(60, end) infinite;
+}
+
+.clock .hour {
+  height: 100px;
+  width: 10px;
+  background-color: #333;
+  /*设置不动点，即旋转元素的基点位置*/
+  transform-origin: center bottom;
+  animation: hour 720s ease-out infinite;
+}
+
+.clock .dir-m {
+  animation: time 3600s stes(60, end) infinite;
+}
+
+.clock .min {
+  height: 130px;
+  width: 6px;
+  background-color: #333;
+  transform-origin: center bottom;
+  animation: min 60s ease-out infinite;
+}
+
+.clock .dir-s {
+  animation: time 60s steps(60, end) infinite;
+  background-color: yellow;
+}
+
+.clock .sec {
+  height: 175px;
+  width: 4px;
+  background-color: lightcoral;
+  bottom: -20px;
+  transform-origin: center calc(100% - 20px);
+  /*会有抖动效果*/
+  animation: sec 1s ease-out infinite;
+}
+
+@keyframes time {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hour {
+  0% {
+    transform: rotate(0);
+  }
+  0.03125% {
+    transform: rotate(3deg);
+  }
+  0.0625% {
+    transform: rotate(0);
+  }
+  0.09375% {
+    transform: rotate(-1.5deg);
+  }
+  0.125% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes min {
+  0% {
+    transform: rotate(0);
+  }
+  0.125% {
+    transform: rotate(3deg);
+  }
+  0.25% {
+    transform: rotate(0);
+  }
+  0.375% {
+    transform: rotate(-1.5deg);
+  }
+  0.5% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes sec {
+  0% {
+    transform: rotate(0);
+  }
+  5% {
+    transform: rotate(2deg);
+  }
+  10% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(-1deg);
+  }
+  20% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

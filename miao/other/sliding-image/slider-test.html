@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>slider-test</title>
+  <style>
+  div {
+    margin: auto;
+    width: 300px;
+    height: 180px;
+    position: relative;
+    border: 2px solid;
+  }
+
+  div.test {
+    overflow: hidden;
+    margin-top: 30px;
+  }
+
+  img {
+    width: 100%;  
+    height: 100%;
+    position: absolute;
+    left: -100%;
+    transition: .6s;
+    animation: leave .6s;
+  }
+
+  input:nth-child(1):checked ~ div > img:nth-child(1), 
+  input:nth-child(2):checked ~ div > img:nth-child(2),
+  input:nth-child(3):checked ~ div > img:nth-child(3){
+    left: 0;
+    animation: none;
+    z-index: 1;
+  }
+
+  @keyframes leave {
+    from {
+      left: 0;
+    }
+    to {
+      left: 100%;
+    }
+  }
+  </style>
+</head>
+<body>
+  <input type="radio" name="slider" checked>
+  <input type="radio" name="slider">
+  <input type="radio" name="slider">
+  <div>
+    <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3625768646,634461754&fm=26&gp=0.jpg" alt="">
+    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3921154609,2086916711&fm=26&gp=0.jpg" alt="">
+    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=586602016,985162938&fm=26&gp=0.jpg" alt="">
+  </div>
+  <div class="test">
+    <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3625768646,634461754&fm=26&gp=0.jpg" alt="">
+    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3921154609,2086916711&fm=26&gp=0.jpg" alt="">
+    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=586602016,985162938&fm=26&gp=0.jpg" alt="">
+  </div>
+</body>
+</html>
