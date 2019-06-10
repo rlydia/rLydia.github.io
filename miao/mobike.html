@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mobike</title>
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body, .mobike{
+    width: 100%;
+    height: 100%;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .container-md {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero {
+    width: 100%;
+    height: 762px;
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-4.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .header {
+    height: 80px;
+    line-height: 80px;
+    position: relative;
+    /* background-color:  red; */
+  }
+
+  .header li {
+    display: inline-block;
+  }
+
+  .header a {
+    color: aliceblue;
+    cursor: pointer;
+  }
+
+  .header .logo {
+    float: left;
+  }
+
+  .header .nav-list {
+    float: right;
+  }
+
+  .header .nav-list li a {
+    padding: .5em 20px;
+  }
+
+  .hero-content {
+    /* width: 1040px; */
+    position: absolute;
+    top: 300px;
+    left: 20px;
+    overflow: hidden;
+  }
+
+  .hero-content h1 {
+    color: aliceblue;
+    font-size: 420%;
+    margin-bottom: 15px;
+  }
+
+  .hero-content div {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 21px;
+    border-radius: 10px;
+    padding: 12px 20px;
+  }
+
+  .hero-content div:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .hero-content div a {
+    color: aliceblue;
+  }
+
+  .hero-promos {
+    width: 100%;
+
+  }
+
+  .news {
+    width: 100%;
+    height: 32px;
+    /* padding: 10px; */
+    line-height: 3a2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    /* margin: 0 auto; */
+    font-size: 16px;
+  }
+
+  .news .container-md {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 32px;
+    overflow: hidden;
+  }
+
+  .news a div {
+    display: inline-block;
+    color: aliceblue;
+    padding: 5px 0;
+  }
+
+  .news div.news-logo {
+    height: 18px;
+    width: 42px;
+    padding: 0 4px;
+    display: inline-block;
+    background-color: red;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .hero-promos {
+    /* position: absolute; */
+    overflow: hidden;
+  }
+
+  .hero-promos section {
+    overflow: hidden;
+    margin-left: -2px;
+    margin-right: -2px;
+    border: 1px solid #fff;
+  }
+
+  .hero-promos div {
+    float: left;
+    height: 260px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: aliceblue;
+    width: 25%;
+    border: 1px solid #fff;
+  }
+
+  .hero-promos div:nth-child(1) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg);
+  }
+
+  .hero-promos div:nth-child(2) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg);
+  }
+
+  .hero-promos div:nth-child(3) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg);
+  }
+
+  .hero-promos div:nth-child(4) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg);
+  }
+
+  .hero-promos div a {
+    text-align: center;
+    font-size: 1.5em;
+    display: block;
+    color: aliceblue;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+  }
+
+  .links {
+    width: 100%;
+    display: flow-root;
+  }
+
+  .links .part {
+    float: left;
+    margin: 40px auto;
+    width: 33.33333333333%;
+  }
+
+  .links .part div {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .links .part-icon {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 5px;
+  }
+
+  .links .part:nth-child(1) .part-icon {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-wechat.png);
+  }
+
+  .links .part:nth-child(2) .part-icon {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-rp.png);
+  }
+
+  .links .part:nth-child(3) .part-icon {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-credit.png);
+  }
+
+
+  .links .text h4 {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .links .text div {
+    color: rgba(0,0,0,0.8)
+  }
+
+  .footer {
+    padding: 45px 0;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .footer .about {
+    float: left;
+  }
+
+  .footer .about .logo {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/logo-text.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 160px;
+    height: 36px;
+    padding-bottom: 10px;
+  }
+
+  .footer .about p {
+    margin-top: 15px;
+  }
+
+  .footer ul {
+    display: flow-root;
+  }
+
+  .footer ul.about-list {
+    float: right;
+    /* padding-left: 50px; */
+  }
+
+  .footer ul.about-list > li {
+    float: left;
+    padding-left: 50px;
+  }
+
+  .footer ul.about-list ul {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .footer ul.about-list ul li {
+    line-height: 30px;
+  }
+
+  .footer ul.about-list ul li {
+    color: rgba(0,0,0,0.8);
+  }
+
+  .footer ul.about-list ul li:first-child {
+    color: #000000;
+    padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+
+
+  @media (max-width: 1080px) {
+    .hero {
+      height: 442px;
+    }
+    .hero .nav-list {
+      display: none;
+    }
+    .hero .hero-content {
+      top: 130px;
+      font-size: 70%;
+    }
+    .hero-promos div {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 780px) {
+    .footer .about {
+      float: none;
+    }
+    .footer ul.about-list {
+      padding-top: 20px;
+      float: left;
+    }
+    .footer ul.about-list > li {
+      float: left;
+    }
+    .footer ul.about-list > li:first-child {
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-promos div {
+      width: 100%;
+    }
+    .links .part {
+      width: 50%;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="mobike">
+    <div class="hero">
+      <div class="header">
+        <div class="container-md">
+          <ul class="logo">
+            <li><a href="">摩拜单车</a></li>
+          </ul>
+          <ul class="nav-list">
+            <li><a href="">产品</a></li>
+            <li><a href="">摩拜科技</a></li>
+            <li><a href="">关于</a></li>
+            <li><a href="">广告合作</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <div class="container-md">
+          <div class="hero-content">
+            <h1>让自行车回归城市</h1>
+            <div><a href="">立即开始使用 Mobike</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="news">
+        <div class="container-md">
+            <a href="">
+              <div class="news-logo">NEWS</div>
+              <div>"摩拜公交"小程序上线 线上购买地铁票省时省力</div>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-promos">
+      <section>
+        <div><a href="">大国品牌</a></div>
+        <div><a href="">摩拜科技</a></div>
+        <div><a href="">摩拜生活</a></div>
+        <div><a href="">摩拜校招</a></div>
+      </section>
+    </div>
+    <div class="links">
+      <div class="container-md">
+        <div class="part">
+          <div class="part-icon"></div>
+          <div class="text">
+            <h4>微信小程序</h4>
+            <div>微信扫一扫，直接用车</div>
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-icon"></div>
+          <div class="text">
+            <h4>红包车</h4>
+            <div>骑摩拜，能赚钱</div>
+          </div>
+        </div>
+        <div class="part">
+          <div class="part-icon"></div>
+          <div class="text">
+            <h4>模范分</h4>
+            <div>文明骑行，信用生活</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="footer">
+      <div class="container-md">
+        <div class="about">
+          <div class="logo"></div>
+          <p>Beijing Mobike Technology Co., Ltd</p>
+          <p>客服电话 400-811-7799</p>
+          <p>北京摩拜科技有限公司</p>
+        </div>
+        <ul class="about-list">
+          <li>
+            <ul>
+              <li>产品</li>
+              <li>经典版</li>
+              <li>轻骑</li>
+              <li>智能锁</li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>生活</li>
+              <li>城市</li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>关于</li>
+              <li>关于 Mobike</li>
+              <li>加入我们</li>
+              <li>联系我们</li>
+              <li>服务协议</li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>社交网络</li>
+              <li>微博</li>
+              <li>微信</li>
+              <li>知乎专栏</li>
+              <li>Facebook</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
