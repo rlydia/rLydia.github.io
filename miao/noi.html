@@ -1,0 +1,460 @@
+<!-- a+b问题 -->
+<script id="ch0103/01" type="x">
+  // 用+prompt()来保证其为数值，而不是字符串
+  var a = +prompt()
+  var b = +prompt()
+  console.log(a+b)
+</script>
+
+<!-- 计算(a+b)*c的值 -->
+<script id="ch0103/02" type="x">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  console.log((a+b)*c)
+</script>
+
+<!-- 计算(a+b)/c的值 -->
+<script id="ch0103/03" type="x">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  console.log(parseInt((a+b)/c))
+</script>
+
+<!-- 带余除法 -->
+<script id="ch0103/04" type="x">
+  var a = +prompt()
+  var b = +prompt()
+  console.log(parseInt(a/b))
+  console.log(a%b)
+</script>
+
+<!-- 计算分数的浮点数值 -->
+<script id="ch0103/05" type="x">
+  var a = +prompt()
+  var b = +prompt()
+  var res = a/b
+  console.log(res.toFixed(9))
+</script>
+
+<!-- 甲流疫情死亡率 -->
+<script id="ch0103/06" type="x">
+  var a = +prompt()
+  var b = +prompt()
+  res = (b/a*100).toFixed(3)+"%"
+  console.log(res)
+</script>
+
+<!-- 计算多项式的值 -->
+<script id="ch0103/07" type="x">
+  var x = +prompt()
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var d = +prompt()
+  var res = a*x*x*x + b*x*x + c*x + d
+  console.log(res.toFixed(7))
+</script>
+
+<!-- 温度表达转化 -->
+<script id="ch0103/08" type="x">
+  var f = +prompt()
+  var c = 5*(f-32)/9
+  console.log(c.toFixed(5))
+</script>
+
+<!-- 与圆相关的计算 -->
+<script id="ch0103/09" type="x">
+  var r = +prompt()
+  var pi = 3.14159
+  var d = 2 * r
+  var p = 2 * pi * r
+  var s = pi * r * r
+  console.log(d.toFixed(4))
+  console.log(p.toFixed(4))
+  console.log(s.toFixed(4))
+</script>
+
+<!-- 计算并联电阻的阻值 -->
+<script id="ch0103/10" type="x">
+  var r1 = +prompt()
+  var r2 = +prompt()
+  var R = 1/(1/r1 + 1/r2)
+  console.log(R.toFixed(2))
+</script>
+
+<!-- 计算浮点数相除的余数 -->
+<script id="ch0103/11" type="x">
+  var a = +prompt()
+  var b = +prompt()
+  var res = a%b
+  console.log(res.toFixed(4))
+</script>
+
+<!-- 计算球的体积 -->
+<script id="ch0103/12" type="x">
+  var r = +prompt()
+  var pi = 3.14
+  var v = 4/3*pi*r*r*r
+  console.log(v.toFixed(2))
+</script>
+
+<!-- 反向输出一个三位数 -->
+<script id="ch0103/13" type="x">
+  var n = +prompt("请输入一个三位数")
+  var a = n % 10
+  var b = (n - a) / 10 % 10
+  var c = (n -a - b*10) / 100
+  var res = "" + a + b + c
+  console.log(res)
+</script>
+
+<!-- 大象喝水 -->
+<script id="ch0103/14" type="x">
+  var pi = 3.14159
+  var h = +prompt("小圆桶的深")
+  var r = +prompt("底面半径")
+  var v = pi * r * r * h
+  // 向上取整 Math.ceil
+  console.log(Math.ceil(20000/v))
+</script>
+
+<!-- 苹果和虫子 -->
+<script id="ch0103/15" type="x">
+  var n = +prompt("你买了一箱n个的苹果？")
+  var x = +prompt("虫子每x小时能吃掉一个苹果？")
+  var y = +prompt("经过了y小时")
+  console.log(n - Math.ceil(y/x))
+</script>
+
+<!-- 计算线段长度 -->
+<script id="ch0103/16" type="x">
+  var xa = +prompt("坐标A的横坐标")
+  var ya = +prompt("坐标A的纵坐标")
+  var xb = +prompt("坐标B的横坐标")
+  var yb = +prompt("坐标B的纵坐标")
+  var d = Math.sqrt((xa-xb)*(xa-xb) + (ya-yb)*(ya-yb))
+  console.log(d.toFixed(3))
+</script>
+
+<!-- 计算三角形面积 -->
+<script id="ch0103/17" type="x">
+  var a = +prompt("顶点1的横坐标")
+  var b = +prompt("顶点1的纵坐标")
+  var c = +prompt("顶点2的横坐标")
+  var d = +prompt("顶点2的纵坐标")
+  var e = +prompt("顶点3的横坐标")
+  var f = +prompt("顶点3的纵坐标")
+  var s = (a*d + b*e + c*f - a*f - b*c - d*e) / 2
+  console.log(s.toFixed(2))
+</script>
+
+<!-- 等差数列末项计算 -->
+<script id="ch0103/18" type="x">
+  var a1 = +prompt("等差数列的第一项")
+  var a2 = +prompt("等差数列的第二项")
+  var n = +prompt("求等差数列第几项的值？")
+  var res = a1 + (n -1)*(a2 - a1)
+  console.log(res)
+</script>
+
+<!-- A*B问题 -->
+<script id="ch0103/19" type="x">
+  var a = +prompt("请输入一个正整数a")
+  var b = +prompt("请输入一个正整数b")
+  var res = a * b
+  console.log(res)
+</script>
+
+<!-- 计算2的幂 -->
+<script id="ch0103/20" type="x">
+  var n = +prompt("给定非负整数n，求2^n")
+  var res = 2
+  if (n == 0) { res = 1} 
+  while(n > 1) {
+  res = 2 * res
+  n -= 1
+  }
+  console.log(res)
+</script>
+
+<!-- =======================ch0104======================= -->
+
+<!-- 判断数正负 -->
+<script id="ch0104/01" type="x">
+  var n = +prompt("请输入一个整数N");
+  if (n > 0) {
+    console.log("positive")
+  } else if (n < 0){
+    console.log("negative")
+  } else {
+    console.log("zero")
+  }
+</script>
+
+<!-- 输出绝对值 -->
+<script id="ch0104/02" type="x">
+  var n = +prompt("输入一个浮点数")
+  if (n >= 0) {
+    console.log(n.toFixed(2))
+  } else {
+    console.log((-n).toFixed(2))
+  }
+</script>
+
+<!-- 奇偶数判断 -->
+<script id="ch0104/03" type="x">
+  var n = +prompt("输入一个整数，将判断该数是奇数还是偶数")
+  if (n%2 == 0) {
+    console.log("even")
+  } else {
+    console.log("odd")
+  }
+</script>
+
+<!-- 奇偶ASCII值判断 -->
+<script id="ch0104/04" type="x">
+  var x = prompt("任意输入一个字符")
+  var a = x.charCodeAt()
+  if (a % 2 == 1) {
+    console.log("YES")
+  } else {
+    console.log("NO")
+  }
+</script>
+
+<!-- 整数大小比较 -->
+<script id="ch0104/05" type="x">
+  var x = prompt("请输入一个整数")
+  var y = prompt("请再输入一个整数")
+  if (x > y) {
+    console.log(">")
+  } else if (x < y) {
+    console.log("<")
+  } else {
+    console.log("=")
+  }
+</script>
+
+<!-- 判断一个正整数是否为两位数 -->
+<script id="ch0104/06" type="x">
+  var a = +prompt("请输入一个不超过1000的整数")
+  if (a>=10 && a<=99) {
+    console.log("1")
+  } else {
+    console.log("0")
+  }
+</script>
+
+<!-- 收集瓶盖赢大奖 -->
+<script id="ch0104/07" type="x">
+  var a = +prompt("请输入印有“幸运”的瓶盖数")
+  var b = +prompt("请输入印有“鼓励”的瓶盖数")
+  if (a >= 10 || b >= 20) {
+    console.log("1")
+  } else {
+    console.log("0")
+  }
+</script>
+
+<!-- 判断一个数能否同时被3和5整除 -->
+<script id="ch0104/08" type="x">
+  var n = +prompt("请输入一个整数n，以判断其能否被3和5整除")
+  if (n%3==0 && n%5==0) {
+    console.log("YES")
+  } else {
+    console.log("NO")
+  }
+</script>
+
+<!-- 判断能否被3,5,7整除 -->
+<script id="ch0104/09" type="x">
+  var n = +prompt("请输入一个整数")
+  if (n%3==0 && n%5==0 &&n%7==0) {
+    console.log("3 5 7")
+  } else if (n%3==0 && n%5==0) {
+    console.log("3 5")
+  } else if (n%3==0 && n%7==0) {
+    console.log("3 7")
+  } else if (n%5==0 && n%7==0) {
+    console.log("5 7")
+  } else if (n%3==0){
+    console.log("3")
+  } else if (n%5==0){
+    console.log("5")
+  } else if (n%7==0){
+    console.log("7")
+  } else {
+    console.log("n")
+  }
+</script>
+
+<!-- 有一门课不及格的学生 -->
+<script id="ch0104/10" type="x">
+  var x = +prompt("请输入语文成绩")
+  var y = +prompt("请输入数学成绩")
+  if ((x<60 && y>=60) || (y<60 && x>=60)) {
+    console.log("1")
+  } else {
+    console.log("0")
+  }
+</script>
+
+<!-- 晶晶赴约会 -->
+<script id="ch0104/11" type="x">
+  var n = +prompt("什么时候邀请晶晶去看展览呢？")
+  if (n == 1 || n == 3 || n == 5) {
+    console.log("NO")
+  } else {
+    console.log("YES")
+  }
+</script>
+
+<!-- 骑车与走路 -->
+<script id="ch0104/12" type="x">
+  var n = +prompt("这次办事要行走的距离为多少呀,单位为米")
+  var bt = 27 + 23 + n/3
+  var wt = n/1.2
+  if (bt < wt) {
+    console.log("Bike")
+  } else if (bt > wt) {
+    console.log("Walk")
+  } else {
+    console.log("All")
+  }
+</script>
+
+<!-- 分段函数 -->
+<script id="ch0104/13" type="x">
+  var x = +prompt("请输入一个浮点数N,0<=N<20!!")
+  var y
+  if (x>=0 && x<5) {
+    y = -x+2.5
+    console.log(y.toFixed(3))
+  } else if (x>=5 && x<10) {
+    y = 2-1.5*(x-3)*(x-3)
+    console.log(y.toFixed(3))
+  } else {
+    y = x/2-1.5
+    console.log(y.toFixed(3))
+  }
+</script>
+
+<!-- 计算邮资 -->
+<script id="ch0104/14" type="x">
+  var a = +prompt("邮件的重量（单位为克）")
+  var b = prompt("是否加急；加急填y，不加急填n")
+  var res
+  if (a<=1000 && b=="y") {
+    res = 8 + 5
+  } else if (a<=1000 && b=="n") {
+    res = 8
+  } else if (a>1000 && b=="y") {
+    res = 8 + 4 * Math.ceil((a - 1000)/500) + 5
+  } else if (a>1000 && b=="n") {
+    res = 8 + 4 * Math.ceil((a - 1000)/500)
+  }
+  console.log(res)
+</script>
+
+<!-- 最大数输出 -->
+<script id="ch0104/15" type="x">
+  var a = +prompt("请输入第一个整数，共需三个数")
+  var b = +prompt("请输入第二个整数，共需三个数")
+  var c = +prompt("请输入第三个整数，共需三个数")
+  var max
+  if (b>a && b>c) {
+    max = b
+  } else if (a>b && a<c) {
+    max = a
+  } else if (c>a && c>b) {
+    max = c
+  }
+  console.log(max)
+</script>
+
+<!-- 三角形判断 -->
+<script id="ch0104/16" type="x">
+  var a = +prompt("请输入第一条边，共需三条边")
+  var b = +prompt("请输入第二条边，共需三条边")
+  var c = +prompt("请输入第三条边，共需三条边")
+  
+  if (a+b>c && a+c>b && b+c>a) {
+    console.log("yes")
+  } else {
+    console.log("no")
+  }
+</script>
+
+<!-- 判断闰年 -->
+<script id="ch0104/17" type="x">
+  var y = +prompt("请输入一个年份...")
+  if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0 && y % 3200 != 0)) {
+    console.log("Y")
+  } else {
+    console.log("N")
+  }
+</script>
+
+<!-- 点和正方形的关系 -->
+<script id="ch0104/18" type="x">
+  var x = +prompt("请输入一个点的横坐标")
+  var y = +prompt("请输入一个点的纵坐标")
+  if ((x>=-1 && x<=1) && (y>=-1 && y<=1)) {
+    console.log("yes")
+  } else {
+    console.log("no")
+  }
+</script>
+
+
+<script id="ch0104/19" type="x">
+  var x = +prompt("请输入第一个参数")
+  var y = +prompt("请输入第二个参数")
+  var ope = prompt("请输入一个操作符")
+  var res
+  if (ope == "+") {
+    res = x + y
+    console.log(res)
+  } else if (ope == "-") {
+    res = x - y
+    console.log(res)
+  } else if (ope == "*") {
+    res = x * y
+    console.log(res)
+  } else if (ope == "/") {
+    if (y == 0) {
+      console.log("Divided by zero")
+    } else {
+      res = x / y
+      console.log(res)
+    }
+  } else {
+    console.log("Invalid operator!")
+  }
+</script>
+
+<!-- 求一元二次方程的根 -->
+<script id="ch0104/20" type="">
+  var a =+prompt("请输入ax^2+bx+c=0的系数a")
+  var b =+prompt("请输入ax^2+bx+c=0的系数b")
+  var c =+prompt("请输入ax^2+bx+c=0的系数c")
+  var delta=b*b-4*a*c
+  if(delta==0){
+    console.log("x1=x2="+ ((-b + Math.sqrt(delta))/(2*a)).toFixed(5))
+  }else if(delta>0){
+    console.log("x1="+ ((-b + Math.sqrt(delta))/(2*a)).toFixed(5)+";"+"x2="+((-b - Math.sqrt(delta))/(2*a)).toFixed(5))
+  }else{
+    console.log("x1="+(-b/(2*a)).toFixed(5)+"+"+ (Math.sqrt(-delta)/(2*a)).toFixed(5)+"i;"+"x2="+(-b/(2*a)).toFixed(5) +"-"+ (Math.sqrt(-delta)/(2*a)).toFixed(5)+"i")
+  }
+</script>
+
+<!-- 苹果和虫子2 -->
+<script id="ch0104/21" type="x">
+  var n = +prompt("你买了一箱n个苹果")
+  var x = +prompt("虫子每x小时吃掉一个苹果")
+  var y = +prompt("经过了y小时")
+  res = n - Math.ceil(y/x)
+  console.log(res)
+</script>
