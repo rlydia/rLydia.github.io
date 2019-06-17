@@ -809,8 +809,8 @@
     var res = "" + a + b + c
     if (parseInt(res) == i.toString(9)) {
       console.log(i)
-      // console.log(i.toString(7))
-      // console.log(i.toString(9))
+      console.log(i.toString(7))
+      console.log(i.toString(9))
     }
   }
 </script>
@@ -894,20 +894,22 @@
 <script id="ch0105/31" type="x">
   var n = +prompt("N盏灯")
   var m = +prompt("共M个人")
-  var on = 1
-  if (n >= m) {
-    for (var i=1; i<=m; i++) {
-      for (var j=1; j<=i; j++) {
-        if (i%j==0) {
-          on = on * (-1)
-        }
-      }
-      if (on == -1) {
-        console.log(i)
-      }
-      on = 1
+  var on = [] 
+  var res = []
+  for (let i=0; i < n; i++) {
+    on[i] = false
+  }
+  for (let i=2; i<=m; i++) {  //m个人
+    for (let j=i; j<=n; j+=i) {  //n盏灯
+      on[j] = !on[j]
     }
- }
+  }
+  for (let i=1; i<=n; i++) {
+    if (!on[i]) {
+      res.push(i)
+    }
+  }
+  console.log(res.join(","))
 </script>
 
 <!-- 求分数序列和 -->
@@ -1061,19 +1063,25 @@
   var h = +prompt("矩形中的高")
   var w = +prompt("矩形中的宽")
   var sign = prompt("请输入表示画图的矩形符号")
-  var oi = +prompt("0表示空心，1表示实心")
-  var fil
-  var temp
-  if (oi==0) {fil=" "}
-  if (oi==1) {fil=sign}
-  for (var i = 0; i < w;  i++) {
-    for (var j = 0; j < h; j++) {
-      if (i==1 || i==w || j==1 || j==h) temp += sign
-      else temp += fil
+  var fil = +prompt("0表示空心，1表示实心")
+  var rech = ""
+  for (var i = 1; i <= h;  i++) {
+    for (var j = 1; j <= w; j++) {
+      if (fil==1) {
+        rech += sign
+      } else {
+        if(i==1 || i==h || j==1 || j==w) {
+          rech += sign
+        } else {
+          rech += " "
+        }
+      }
     }
-    console.log(temp)
+    rech += "\n"
   }
+  console.log(rech)
 </script>
+
 
 <!-- 质因数分解 -->
 <script id="ch0105/43" type="x">
