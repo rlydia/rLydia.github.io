@@ -724,8 +724,8 @@
     sum += h
     h = h/2
   }
-  console.log(sum)
-  console.log(h/2)
+  console.log(sum.toFixed(4))
+  console.log((h/2).toFixed(7))
 </script>
 
 <!-- 角谷猜想 -->
@@ -745,7 +745,7 @@
 
 <!-- 津津的储蓄计划 -->
 <!-- st表示storage -->
-<script id="ch0105/22" type="X">
+<script id="ch0105/22" type="x">
   var endm = 0; var st = 0;
   for (i=1; i<=12; i++) {
     var budget = +prompt("请输入津津第"+i+"月的预算。")
@@ -765,33 +765,384 @@
 <script id="ch0105/23" type="x">
   var m = +prompt("每天开始时的药品总量m")
   var n = +prompt("这一天取药的人数n（0<n<=100）")
-  for (i=1; i <= n; i++) {
+  var person = 0
+  for (var i=1; i <= n; i++) {
     var x = +prompt("第"+i+"个病人希望取走的药品数量")
+    if (m >= x) {
+      m = m - x
+    } else {
+      person++
+    }
+  }
+  console.log(person)
+</script>
+
+<!-- 正常血压 -->
+<script id="ch0105/24" type="x">
+  var n = +prompt("病人测量血压的小时数")
+  var cont = 0; var max = 0; var min = 0
+  for (var i=1; i <= n; i++) {
+    var x = +prompt("第"+i+"小时的收缩压")
+    var y = +prompt("第"+i+"小时的舒张压")
+    if ((x>=90 && x<=140) && (y>=60 && y<=90)) {
+      cont ++
+      min = 1
+      if (cont > max) {
+        max = cont
+      }
+    }
+    else {
+      cont = 0
+    }
+  }
+  if (max > min) {console.log(max)}
+  else {console.log(min)}
+</script>
+
+<!-- 求特殊自然数 -->
+<script id="ch0105/25" type="x">
+  for (var i = 99; i <= 342; i++) {
+    n = i.toString(7)
+    var a = n % 10
+    var b = (n - a) / 10 % 10
+    var c = (n -a - b*10) / 100
+    var res = "" + a + b + c
+    if (parseInt(res) == i.toString(9)) {
+      console.log(i)
+      // console.log(i.toString(7))
+      // console.log(i.toString(9))
+    }
   }
 </script>
 
+<!-- 统计满足条件的4位数个数 -->
+<script id="ch0105/26" type="x">
+  var n = +prompt("请输入四位数的个数")
+  var count = 0
+  var a = 0, b = 0, c = 0, d = 0
+  for (var i = 1; i <= n; i++) {
+    var x = +prompt("请输入第"+i+"个四位数")
+    a = x % 10
+    b = (x - a) / 10 % 10
+    c = ((x - a)/10-b) / 10 % 10
+    d = (((x - a)/10-b)/10-c) / 10
+    if ((a-d-c-b) > 0) {
+      count ++
+    }
+  }
+  console.log(count)
+</script>
 
-<script id="ch0105/24" type=""></script>
-<script id="ch0105/25" type=""></script>
-<script id="ch0105/26" type=""></script>
-<script id="ch0105/27" type=""></script>
-<script id="ch0105/28" type=""></script>
-<script id="ch0105/29" type=""></script>
-<script id="ch0105/30" type=""></script>
+<!-- 级数求和 -->
+<script id="ch0105/27" type="x">
+  var k = +prompt("请输入一个整数k，使得Sn>k; 1<=k<=15")
+  var Sn = 0
+  for (var n=1;;n++) {
+    Sn = Sn + 1/n
+    if (Sn > k) {
+      console.log(n)
+      break
+    }
+  }
+</script>
 
-<script id="ch0105/31" type=""></script>
-<script id="ch0105/32" type=""></script>
-<script id="ch0105/33" type=""></script>
-<script id="ch0105/34" type=""></script>
-<script id="ch0105/35" type=""></script>
-<script id="ch0105/36" type=""></script>
-<script id="ch0105/37" type=""></script>
-<script id="ch0105/38" type=""></script>
-<script id="ch0105/39" type=""></script>
-<script id="ch0105/40" type=""></script>
+<!-- 分离整数的各个数位 -->
+<script id="ch0105/28" type="x">
+  var n = +prompt("请输入一个整数n")
+  var a
+  while(n>0) {
+    a = n%10
+    n = (n-a)/10
+    console.log(a)
+  }
+</script>
 
-<script id="ch0105/41" type=""></script>
-<script id="ch0105/42" type=""></script>
-<script id="ch0105/43" type=""></script>
-<script id="ch0105/44" type=""></script>
-<script id="ch0105/45" type=""></script>
+<!-- 数字反转 -->
+<script id="ch0105/29" type="x">
+  var n = +prompt("请输入一个整数n")
+  var res = 0
+  while (n !== 0) {
+        // 从个位起一位一位的颠倒
+        res = res * 10 + n % 10;
+        n = parseInt(n / 10);
+    }
+  console.log(res)
+</script>
+
+<!-- 含k个3的数 -->
+<script id="ch0105/30" type="x">
+  var m = +prompt("请输入一个正整数m")
+  var k = +prompt("请输入一个正整数k---m中含有k个3")
+  var count = 0
+  if (m % 19 == 0) {
+    while(m>0) {
+    a = m%10
+    m = (m-a)/10
+    if (a == 3) {count++}
+    }
+    if (count == k) {
+      console.log("YES")
+    } else {
+      console.log("NO")
+    }
+  } else {
+    console.log("NO")
+  }
+</script>
+
+<!-- 开关灯 -->
+<script id="ch0105/31" type="x">
+  var n = +prompt("N盏灯")
+  var m = +prompt("共M个人")
+  var on = 1
+  if (n >= m) {
+    for (var i=1; i<=m; i++) {
+      for (var j=1; j<=i; j++) {
+        if (i%j==0) {
+          on = on * (-1)
+        }
+      }
+      if (on == -1) {
+        console.log(i)
+      }
+      on = 1
+    }
+ }
+</script>
+
+<!-- 求分数序列和 -->
+<script id="ch0105/32" type="x">
+  var n = +prompt("需计算分数序列前几项的和？")
+  p = 1
+  q = 2
+  sum = 0
+  for (let i=1; i <= n; i++) {
+    sum = q/p + sum
+    let m = p
+    p = q
+    q = q + m
+  }
+  console.log(sum.toFixed(4))
+</script>
+
+<!-- 计算分数加减表达式的值 -->
+<script id="ch0105/33" type="x">
+  var n = +prompt("请输入一个整数")
+  var sum = 0
+  debugger
+  for (var i = 1; i <= n; i++) {
+    if (i%2 == 0) {
+      sum = sum - 1/i
+    } else {
+      sum = sum + 1/i
+    } 
+  }
+  console.log(sum.toFixed(4))
+</script>
+
+<!-- 求阶乘的和 -->
+<script id="ch0105/34" type="x">
+  var n = +prompt("请输入一个正整数n(1 < n <12)，求不大于n的正整数的阶乘的和")
+  var sum = 0
+  for (var i = 1; i <= n; i++) {
+    var a = 1
+    for (var j = 1; j <= i; j++) {
+      a = a * j
+    }
+    sum = sum + a
+  }
+  console.log(sum)
+</script>
+
+<!-- 求出e的值 -->
+<script id="ch0105/35" type="x">
+  var n = +prompt("请输入一个正整数n(2 <= n <15)，表示计算e时累加到1/n")
+  var sum = 1
+  for (var i = 1; i <= n; i++) {
+    var a = 1
+    for (var j = 1; j <= i; j++) {
+      a = a * j
+    }
+    sum = sum + 1/a
+  }
+  console.log(sum.toFixed(10))
+</script>
+
+<!-- 计算多项式的值 -->
+<script id="ch0105/36" type="x">
+  var x = +prompt("请输入x")
+  var n = +prompt("请输入n")
+  var sum = 1
+  for (var i = 1; i <= n; i++) {
+    var a = 1
+    for (var j = 1; j <= i; j++) {
+      a = a * x
+    }
+    sum = sum + a
+  }
+  console.log(sum.toFixed(2))
+</script>
+
+<!-- 雇佣兵 -->
+<script id="ch0105/37" type="x">
+  var m = +prompt("雇佣兵的最大体力最大值M")
+  var n = +prompt("雇佣兵的战斗力N")
+  var x = +prompt("雇佣兵拥有x个能量元素")
+  var nown = n
+  while (nown<=m && x) {
+    x -= Math.ceil(m/nown)
+    nown += Math.floor(m/nown)
+  }
+  console.log(nown) 
+</script>
+
+<!-- 计算多项式的导函数 -->
+<script id="ch0105/38" type="x">
+  var t = +prompt("该组有t组数据")
+  for (var i = 0; i < t; i++) {
+    var n = +prompt("有n+1项")
+    if (n == 0) {
+      var c = +prompt("每项系数依次为...")
+      console.log(0)
+      continue
+    }
+    for (var j= n;  j >= 0; j--) {
+      var c = +prompt("每项系数依次为...")
+      if (j > 0) console.log(c*j)
+    }
+  }
+</script>
+
+<!-- 与39无关的数 -->
+<script id="ch0105/39" type="x">
+  var n = +prompt("求所有小于等于n(n < 100)的与7无关的正整数的平方和")
+  var x
+  var sum = 0
+  for (var i = 1; i <= n; i++) {
+    if (i%7!=0 && i%10!=7 && Math.floor(i/10)!=7) {
+      x = i
+      sum += i*i
+    }
+  }
+  console.log(sum)
+</script>
+
+<!-- 数1的个数 -->
+<script id="ch0105/40" type="x">
+  var n = +prompt("数1到n的所有整数中，其中出现数字1的个数")
+  var count = 0
+  for (var i = 1; i <= n; i++) {
+    if (i%10==1) count ++
+    if ( Math.floor(i/10)==1) count++
+    if ( Math.floor(i/100)==1) count++
+    if ( Math.floor(i/1000)==1) count++
+    if ( Math.floor(i/10000)==1) count++
+  }
+  console.log(count)
+</script>
+
+<!-- 数字统计 -->
+<script id="ch0105/41" type="x">
+  var L = +prompt("[L, R]中的L")
+  var R = +prompt("[L, R]中的R")
+  var count = 0
+  for (var i = L; i <= R; i++) {
+    if (i%10==2) count ++
+    if ( Math.floor(i/10)==2) count++
+    if ( Math.floor(i/100)==2) count++
+    if ( Math.floor(i/1000)==2) count++
+    if ( Math.floor(i/10000)==2) count++
+  }
+  console.log(count)
+</script>
+
+<!-- 画矩形 -->
+<script id="ch0105/42" type="x">
+  var h = +prompt("矩形中的高")
+  var w = +prompt("矩形中的宽")
+  var sign = prompt("请输入表示画图的矩形符号")
+  var oi = +prompt("0表示空心，1表示实心")
+  var fil
+  var temp
+  if (oi==0) {fil=" "}
+  if (oi==1) {fil=sign}
+  for (var i = 0; i < w;  i++) {
+    for (var j = 0; j < h; j++) {
+      if (i==1 || i==w || j==1 || j==h) temp += sign
+      else temp += fil
+    }
+    console.log(temp)
+  }
+</script>
+
+<!-- 质因数分解 -->
+<script id="ch0105/43" type="x">
+  function isPrimeNum(num) {
+    for (var i=2; i<num; i++) {
+      if (num%i==0) {
+        return false;
+      }
+    }
+    return true
+  }
+
+  var n = +prompt("请输入一个正整数，其为两个不同质数的乘积")
+  var a, b
+  for (var i = 2; i <= n; i++) {
+    if (n%i == 0) {
+      a = n/i
+      b = i
+      if (isPrimeNum(a) && isPrimeNum(b)) {
+        if (a>b) {
+          console.log(a)
+          break
+        } else {
+          console.log(b)
+          break
+        }
+      }
+    }
+  }
+</script>
+
+<!-- 第n个小质数 -->
+<script id="ch0105/44" type="x">
+  function isPrimeNum(num) {
+    for (var i=2; i<num; i++) {
+      if (num%i==0) {
+        return false;
+      }
+    }
+    return true
+  }
+  
+  var n = +prompt("求第n小的质数")
+  var count = 0
+  for (var i=2; i<=10000; i++) {
+    if(isPrimeNum(i)) {
+      count++
+    }
+    if(count == n) {
+      console.log(i)
+      break
+    }
+  }
+
+</script>
+
+<!-- 金币 -->
+<script id="ch0105/45" type="x">
+  var n = +prompt("给定天数n；将求从第一天开始的给定天数内，骑士共获得的金币数")
+  var coins = 1
+  var alcoins = 0
+  var days = 0
+  for (var i=1; i<=n; i++) {
+    alcoins = alcoins + coins
+    days++
+    if (days == coins) {
+      days = 0
+      coins++
+    }
+  }
+  console.log(alcoins)
+</script>
