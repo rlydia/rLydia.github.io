@@ -1294,6 +1294,7 @@
 
 <!-- weekday: 输入年份与月份，输出这此年此月的第一天为星期几（0对应周日，1对应周一） -->
 <!-- 基姆拉尔森计算公式:W= (d+2*m+3*(m+1)/5+y+y/4-y/100+y/400) mod 7 -->
+<!-- https://blog.csdn.net/yuer158462008/article/details/48528271  公式的修正 -->
 <script id="weekday" type="x">
   var y = +prompt("请输入年份,格式为2019")
   var m = +prompt("请输入月份")
@@ -1301,10 +1302,10 @@
   var wd
   if (m == 1 || m == 2) {
     m += 12
-    y--
+    --y
   }
-  wd = (d + 1 + 2*m + 3*(m+1)/5 + y + y/4 - y/100 + y/400) % 7
-  console.log(wd)
+  wd = (d + 1 + 2*m + 3*(m+1)/5 + y + (y>>2) - y/100 + y/400) % 7
+  console.log(parseInt(wd))
 </script>
 
 
@@ -1409,21 +1410,21 @@
   var n = +prompt("请输入一个数，将输出其平方根")
     for (var i = 0; i * i  < n ; i++);
     if (i * i == n) {
-        console.log(i.toFixed(3))
+      console.log(i.toFixed(3))
     } else {
-        var mid  = (i - 1  + i ) / 2
-        var left = i - 1, right = i
-        var count = 0
-        while (mid * mid != n && count < 200) {
-            if (mid * mid > n) {
-                right = mid 
-                mid = (left + right) / 2
-            } else if (mid * mid < n) {
-                left = mid
-                mid = (left + right) / 2
-            }
-            count++
+      var mid  = (i - 1  + i ) / 2
+      var left = i - 1, right = i
+      var count = 0
+      while (mid * mid != n && count < 200) {
+        if (mid * mid > n) {
+          right = mid 
+          mid = (left + right) / 2
+        } else if (mid * mid < n) {
+          left = mid
+          mid = (left + right) / 2
         }
-        console.log(mid.toFixed(3))
+        count++
+      }
+      console.log(mid.toFixed(3))
     }
 </script> -->
