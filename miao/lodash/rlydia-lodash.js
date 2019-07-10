@@ -1,5 +1,5 @@
-var rlydia = function() {
-  function compact(ary) {
+var rlydia = {
+  compact: function(ary) {
     return ary.filter(it => it)
   }
 }
