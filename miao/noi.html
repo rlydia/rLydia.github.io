@@ -341,7 +341,7 @@
   }
 </script>
 
-<!-- 计算邮资 -->
+<!-- 计算邮资1 -->
 <script id="ch0104/14" type="x">
   var a = +prompt("邮件的重量（单位为克）")
   var b = prompt("是否加急；加急填y，不加急填n")
@@ -358,45 +358,72 @@
   console.log(res)
 </script>
 
-  <!-- 更优的写法： -->
-  <!-- var q = +prompt()
-  var isEm = prompt()
+<!-- 计算邮资2 -->
+<!-- 更优的写法： -->
+<!-- <script id="ch0104/14" type="x">
+  var q = +prompt("邮件的重量（单位为克）")
+  var isEm = prompt("是否加急；加急填y，不加急填n")
   var p = 8
   if (q > 1000) {
     p += Math.ceil((q - 1000) / 500) * 4
+  } else {
+    p = 8
   }
   if (isEm === 'y') {
     p += 5
   }
   console.log(p)
-  if (isEm == 'y') {
-    if (q < 1000) {
-    } else {
-    }
-  } else {
-    if (q > 1000) {
-    } else {
-    }
-  } -->
+</script> -->
 
-<!-- 最大数输出 -->
-<script id="ch0104/15" type="x">
+<!-- 最大数输出1 -->
+<!-- <script id="ch0104/15" type="x">
   var a = +prompt("请输入第一个整数，共需三个数")
   var b = +prompt("请输入第二个整数，共需三个数")
   var c = +prompt("请输入第三个整数，共需三个数")
-  var max
-  if (b>a && b>c) {
-    max = b
-  } else if (a>b && a<c) {
+  if (b >= a && b >= c) {
+    console.log(b)
+  } else if (a >= b && a >= c) {
+    console.log(a)
+  } else if (c >= a && c >= b) {
+    console.log(c)
+  }
+</script> -->
+
+<!-- 最大数输出2 -->
+<!-- <script id="ch0104/15" type="x">
+  var max = -Infinity  // 若max没有被赋值，则默认为undefined
+  var a
+  a = +prompt("请输入第一个整数，共需三个数")
+  if (a > max) {
     max = a
-  } else if (c>a && c>b) {
-    max = c
+  }
+  a = +prompt("请输入第二个整数，共需三个数")
+  if (a > max) {
+    max = a
+  }
+  a = +prompt("请输入第三个整数，共需三个数")
+  if (a > max) {
+    max = a
+  }
+  console.log(max)
+</script> -->
+
+<!-- 最大数输出3 (写为循环) -->
+<script id="ch0104/15" type="x">
+  var max = -Infinity
+  var a
+  for (i = 1; i <= 3; i++) {
+    a = +prompt("请输入第"+ i +"个整数，共需三个数")
+    if (a > max) {
+      max = a
+    }
   }
   console.log(max)
 </script>
 
-<!-- 三角形判断 -->
-<script id="ch0104/16" type="x">
+
+<!-- 三角形判断1 -->
+<!-- <script id="ch0104/16" type="x">
   var a = +prompt("请输入第一条边，共需三条边")
   var b = +prompt("请输入第二条边，共需三条边")
   var c = +prompt("请输入第三条边，共需三条边")
@@ -405,6 +432,21 @@
     console.log("yes")
   } else {
     console.log("no")
+  }
+</script> -->
+
+<!-- 三角形判断2 -->
+<!-- 海伦公式 -->
+<script id="ch0104/16" type="x">
+  var a = +prompt("请输入第一条边，共需三条边")
+  var b = +prompt("请输入第二条边，共需三条边")
+  var c = +prompt("请输入第三条边，共需三条边")
+  
+  var p = (a + b + c) / 2
+  if (p*(p-a)*(p-b)*(p-c)<0) {
+    console.log("no")
+  } else {
+    console.log("yes")
   }
 </script>
 
@@ -486,8 +528,10 @@
 <script id="ch0105/01" type="x">
   var n = +prompt("请输入学生的人数n")
   var sum = 0
+  var age
   for (let a = 1; a <= n; a++) {
-    sum = sum + (+prompt("请输入第"+ a +"个学生的成绩!"))
+    age = +prompt("请输入第"+ a +"个学生的成绩!")
+    sum = sum + age
   }
   console.log((sum/n).toFixed(2))
 </script>
@@ -687,7 +731,7 @@
 </script>
 
 <!-- 斐波那契数列 -->
-<script id="ch0105/17" type="x">
+<!-- <script id="ch0105/17" type="x">
   var k = +prompt("你需求斐波那契的第几个数呢？")
   var a = 1; var b = 1; c = 2;
   if (k == 1 || k == 2) {
@@ -702,7 +746,24 @@
     }
     console.log(c)
   }
+</script> -->
+
+
+<!-- 斐波那契数列 -->
+<script id="ch0105/17" type="x">
+  var k = +prompt("你需求斐波那契的第几个数呢？")
+  var a = 1; var b = 1;
+  if (k == 1 || k == 2) {
+    console.log(1)
+  } else {
+    for (let i = 3; i < k + 1; i++) {
+      b = b + a
+      a = b - a
+    }
+    console.log(b)
+  }
 </script>
+
 
 <!-- 鸡尾酒疗法 -->
 <script id="ch0105/18" type="x">
@@ -836,9 +897,15 @@
   }
 </script> -->
 
+
 <!-- 求特殊自然数 -->
+<!-- x.toString(7) 不能用这种转换方法 -->
+<!-- 需满足该十进制数的  七进制与九进制都是三位数; -->
+<!-- n的最小值为81(九进制的100); 最大值为342(七进制的666) -->
+<!-- 以十进制的各个位的数的分离为基础 -->
+<!-- 进制转换 见0105/28 -->
 <script id="ch0105/25" type="x">
-  for (var n = 49; n <= 738; n++) {
+  for (var n = 81; n <= 342; n++) {
     var seven1 = n % 7
     var seven2 = (n - seven1) / 7 % 7
     var seven3 = ((n - seven1) / 7 - seven2) / 7 % 7
@@ -853,8 +920,9 @@
   }
 </script>
 
+
 <!-- 统计满足条件的4位数个数 -->
-<script id="ch0105/26" type="x">
+<!-- <script id="ch0105/26" type="x">
   var n = +prompt("请输入四位数的个数")
   var count = 0
   var a = 0, b = 0, c = 0, d = 0
@@ -869,9 +937,60 @@
     }
   }
   console.log(count)
+</script> -->
+
+<!-- <script id="ch0105/26" type="x">
+  var n = +prompt()
+  var count = 0
+
+  for (var i = 0; i < n; i++) {
+    var number = +prompt()
+
+    var n1 = Math.floor(number/1) % 10
+    var n2 = Math.floor(number/10) % 10
+    var n2 = Math.floor(number/100) % 10
+    var n2 = Math.floor(number/1000) % 10
+
+    if (n4 - n3 - n2 - n1 > 0) {
+      count++
+    }
+  }
+  console.log(count)
+</script> -->
+
+
+
+<!-- 统计满足条件的4位数个数 -->
+<!-- 升级版 -->
+<script id="ch0105/26" type="x">
+  var n = +prompt("请输入四位数的个数")
+  var count = 0
+  for (var i = 1; i <= n; i++) {
+    var number = +prompt("请输入第"+i+"个四位数")
+
+    var last = number % 10
+    number = (number - last) / 10
+
+    while (number > 0) {
+      var digit = number % 10
+      last -= digit
+      if (last < 0) {
+        break
+      }
+      number = (number - digit) / 10
+    }
+    if (last > 0) {
+      count++
+    }
+  }
+  console.log(count)
 </script>
 
+
+
+
 <!-- 级数求和 -->
+<!-- 这里的数列之和是递增的（有的数列的前n项和会不断趋近于一个固定值） -->
 <script id="ch0105/27" type="x">
   var k = +prompt("请输入一个整数k，使得Sn>k; 1<=k<=15")
   var Sn = 0
@@ -885,39 +1004,55 @@
 </script>
 
 <!-- 分离整数的各个数位 -->
+<!-- 这里相当于 进制转换 问题 -->
 <script id="ch0105/28" type="x">
   var n = +prompt("请输入一个整数n")
-  var a
-  while(n>0) {
-    a = n%10
-    n = (n-a)/10
-    console.log(a)
+  while(n > 0) {
+    var digit = n % 10
+    console.log(digit)
+    n = (n-digit) / 10
   }
 </script>
 
+<!-- 如 十进制转换为二进制 -->
+<!-- <script type="">
+  var n = +prompt()
+  while (n > 0) {
+    var digit = n % 2
+    console.log(digit)
+    n = (n - digit) / 2
+  }
+</script> -->
+
 <!-- 数字反转 -->
+<!-- 翻转后的最高位 不应为为零 -->
+<!-- 负数模上一个10，总是能得到负数 -->
+<!-- (正数模上负数为正的--正数模上正数也为正的；负数模上正数为负的-> 可在窗口中试验) -->
 <script id="ch0105/29" type="x">
   var n = +prompt("请输入一个整数n")
   var res = 0
   while (n !== 0) {
-        // 从个位起一位一位的颠倒
-        res = res * 10 + n % 10;
-        n = parseInt(n / 10);
-    }
+    // 从个位起一位一位的颠倒
+    var digit = n % 10
+    res = res * 10 + digit
+    n = parseInt(n / 10);
+  }
   console.log(res)
 </script>
 
 <!-- 含k个3的数 -->
+<!-- 判断 m 能否被19整除，且恰好含有k个3，如果满足条件，则输出YES，否则，输出NO。 -->
 <script id="ch0105/30" type="x">
   var m = +prompt("请输入一个正整数m")
   var k = +prompt("请输入一个正整数k---m中含有k个3")
   var count = 0
   if (m % 19 == 0) {
-    while(m>0) {
-    a = m%10
-    m = (m-a)/10
-    if (a == 3) {count++}
+    while(m > 0) {
+      var digit = m % 10
+      if (digit == 3) {count++}
+      m = (m - digit) / 10
     }
+
     if (count == k) {
       console.log("YES")
     } else {
@@ -928,8 +1063,31 @@
   }
 </script>
 
+<!-- 另一种做法 -->
+<!-- <script id="ch0105/30" type="">
+  var m = +prompt()
+  // var num = n
+  var k = +prompt()
+  var count3 = 0
+  while(m > 0) {
+    var digit = m % 10
+    if (digit == 3) {
+      count3++
+    }
+    m = (m - digit) / 10
+  }
+
+  if (count3 == k && m % 19 == 0) {
+    console.log("YES")
+  } else {
+    console.log("NO")
+  }
+</script> -->
+
+
 <!-- 开关灯 -->
-<script id="ch0105/31" type="x">
+<!-- 用数组记住每盏灯的状态比较浪费时间/空间 -->
+<!-- <script id="ch0105/31" type="x">
   var n = +prompt("N盏灯")
   var m = +prompt("共M个人")
   var on = [] 
@@ -948,10 +1106,66 @@
     }
   }
   console.log(res.join(","))
+</script> -->
+
+
+<!-- 开关灯 -->
+<!-- 双重循环 -->
+<!-- 每个人是否会操作那盏灯；取决于灯的号码 模上 人的号码 是否等于0 -->
+<!-- <script id="ch0105/31" type="x">
+  var n = +prompt()
+  var m = +prompt()
+  
+  for (var light = 1; light <= n; light++) {
+    var isLightOn = true
+    
+    for(var p = 1; p <= m; p++) {
+      if (light % p == 0) {
+        if (isLightOn) {
+          isLightOn = false
+        } else {
+          isLightOn = true 
+        }
+      }
+    }
+    if (isLightOn == false) {
+      console.log(light)
+    }
+  }
+</script> -->
+
+
+<!-- 简化版 -->
+<script id="ch0105/31" type="x">
+  var n = +prompt("n盏灯")
+  var m = +prompt("共m个人")
+  
+  for (var light = 1; light <= n; light++) {
+    var isLightOn = true
+    
+    for(var p = 1; p <= m; p++) {
+      if (light % p == 0) {
+        isLightOn = !isLightOn
+      }
+    }
+    if (!isLightOn) {
+      console.log(light)
+    }
+  }
 </script>
 
+<!-- 若都输入100，会发现这些数都为完全平方数: 1,4,9,16,25,36,49...
+36有奇数个的约数(1,2,3,4,6,9,12,18,36)，而12有偶数个的约数(1,2,3,4,6,12)。（约数都是成对出现的，但是完全平方数的 平方根 的平方为该数--自乘）
+这就转变为了求约数有多少个 -->
+
+<!-- 一个数的约数 除了它本身与1以外，最小可能的就为2和x/2。
+只需判断其平方根，平方根以下有多少约数，平方根以上就有多少约数。（如36的平方根为6， 6以下的约数有1,2,3,4，而6以上的约数有9,12,18,36） -->
+
+
+
 <!-- 求分数序列和 -->
-<script id="ch0105/32" type="x">
+<!-- 斐波拉契数列 -->
+<!-- <script id="ch0105/32" type="x">
   var n = +prompt("需计算分数序列前几项的和？")
   p = 1
   q = 2
@@ -963,7 +1177,21 @@
     q = q + m
   }
   console.log(sum.toFixed(4))
+</script> -->
+
+<script id="ch0105/32" type="x">
+  var n = +prompt("需计算分数序列前几项的和？")
+  var a = 1
+  var b = 1
+  var sum = 0
+  for(var i = 0; i < n; i++) {
+    b = b + a
+    a = b - a
+    sum += b/a
+  }
+  console.log(sum.toFixed(4))
 </script>
+
 
 <!-- 计算分数加减表达式的值 -->
 <script id="ch0105/33" type="x">
@@ -983,33 +1211,34 @@
 <!-- 求阶乘的和 -->
 <script id="ch0105/34" type="x">
   var n = +prompt("请输入一个正整数n(1 < n <12)，求不大于n的正整数的阶乘的和")
-  var sum = 0
+  var result = 0  // 累加，初始值为0
+
   for (var i = 1; i <= n; i++) {
-    var a = 1
+    var fac = 1 // 每次需把fac重置掉(即 把i的阶乘重置掉)；累乘，初始值为1
     for (var j = 1; j <= i; j++) {
-      a = a * j
+      fac *= j
     }
-    sum = sum + a
+    result += fac
   }
-  console.log(sum)
+  console.log(result)
 </script>
 
 <!-- 求出e的值 -->
 <script id="ch0105/35" type="x">
   var n = +prompt("请输入一个正整数n(2 <= n <15)，表示计算e时累加到1/n")
-  var sum = 1
-  for (var i = 1; i <= n; i++) {
-    var a = 1
-    for (var j = 1; j <= i; j++) {
-      a = a * j
+  var result = 1
+  for(var i = 1; i <= n; i++) {
+    var fac = 1
+    for(var j = 1; j <= i; j++) {
+      fac *= j
     }
-    sum = sum + 1/a
+    result += 1 / fac
   }
-  console.log(sum.toFixed(10))
+  console.log(result.toFixed(10))
 </script>
 
 <!-- 计算多项式的值 -->
-<script id="ch0105/36" type="x">
+<!-- <script id="ch0105/36" type="x">
   var x = +prompt("请输入x")
   var n = +prompt("请输入n")
   var sum = 1
@@ -1021,6 +1250,19 @@
     sum = sum + a
   }
   console.log(sum.toFixed(2))
+</script> -->
+
+<script id="ch0105/36" type="x">
+  var x = +prompt("请输入x")
+  var n = +prompt("请输入n")
+
+  var result = 0
+  var xpow = 1
+  for(var i = 0; i <= n; i++) {
+    result += xpow
+    xpow *= x
+  }
+  console.log(result.toFixed(2))
 </script>
 
 <!-- 雇佣兵 -->
@@ -1054,7 +1296,7 @@
 </script>
 
 <!-- 与39无关的数 -->
-<script id="ch0105/39" type="x">
+<!-- <script id="ch0105/39" type="x">
   var n = +prompt("求所有小于等于n(n < 100)的与7无关的正整数的平方和")
   var x
   var sum = 0
@@ -1065,10 +1307,57 @@
     }
   }
   console.log(sum)
+</script> -->
+
+<!-- <script id="ch0105/39" type="">
+  var n = +prompt("求所有小于等于n(n < 100)的与7无关的正整数的平方和")
+  var result = 0
+  for(var i = 1; i <= n; i++) {
+    if(i % 7 != 0) {
+      var m = i
+      var isRelated = false
+      while (m > 0) {
+        var digit = m % 10
+        if (digit == 7) {
+          isRelated = true
+          break
+        }
+        m = (m - digit) / 10
+      }
+      if (isRelated == false) {
+        result += i * i
+      }
+    }
+  }
+  console.log(result)
+</script> -->
+
+
+<!-- 更优写法 -->
+<script id="ch0105/39" type="x">
+  var n = +prompt("求所有小于等于n(n < 100)的与7无关的正整数的平方和")
+  var result = 0
+  for(var i = 1; i <= n; i++) {
+    if(i % 7 != 0) {
+      var m = i
+      while (m > 0) {
+        var digit = m % 10
+        if (digit == 7) {
+          break
+        }
+        m = (m - digit) / 10
+      }
+      if (m == 0) {
+        result += i * i
+      }
+    }
+  }
+  console.log(result)
 </script>
 
+
 <!-- 数1的个数 -->
-<script id="ch0105/40" type="x">
+<!-- <script id="ch0105/40" type="x">
   var n = +prompt("数1到n的所有整数中，其中出现数字1的个数")
   var count = 0
   for (var i = 1; i <= n; i++) {
@@ -1079,7 +1368,29 @@
     if ( Math.floor(i/10000)==1) count++
   }
   console.log(count)
+</script> -->
+
+
+<!-- 数1的个数 -->
+<!-- 从1-9循环了1次（共9次），从10到99每次循环了2次（共180次），从100到每次122循环了3次（共66次）。 -->
+<script id="ch0105/40" type="x">
+  var n = +prompt("数1到n的所有整数中，其中出现数字1的个数")
+  var count = 0
+  for(var i = 1; i <= n; i++) {
+    var m = i
+    while (m > 0) {
+      var digit = m % 10
+      if (digit == 1) {
+        count++
+      }
+      m = (m - digit) / 10
+    }
+  }
+  console.log(count)
 </script>
+
+
+
 
 <!-- 数字统计 -->
 <script id="ch0105/41" type="x">
@@ -1122,6 +1433,7 @@
 
 
 <!-- 质因数分解 -->
+<!-- RSA密码学 安全的前提就是 两个较大的数给别人 其在短时间内是无法计算出来两个素数是多少。 -->
 <script id="ch0105/43" type="x">
   function isPrimeNum(num) {
     for (var i=2; i<num; i++) {
@@ -1177,7 +1489,7 @@
 </script>
 
 <!-- 金币 -->
-<script id="ch0105/45" type="x">
+<!-- <script id="ch0105/45" type="x">
   var n = +prompt("给定天数n；将求从第一天开始的给定天数内，骑士共获得的金币数")
   var coins = 1
   var alcoins = 0
@@ -1191,7 +1503,27 @@
     }
   }
   console.log(alcoins)
+</script> -->
+
+<!-- 金币 -->
+<!-- 求 1 + 2 + 2 + 3 + 3 + 3 + 4 + 4 + 4 + 4 
+实际上就是求 1 + 2^2 + 3^2 + 4^2... -> 平方和通项公式；后面若还有数字 需单独加上 (...+5+5)
+i 控制天数； j控制给的次数的 -->
+<!-- (1,2,3,4,5) 是一个表达式；其里面是 逗号表达式； 其求值结果是最后一项的结果 -->
+<script id="ch0105/45" type="x">
+  var n = +prompt("给定天数n；将求从第一天开始的给定天数内，骑士共获得的金币数")
+  var give = 1
+  var sum = 0
+  for(var i = 0, j = 0; i < n; j++, i++) {  // 这里的逗号是逗号运算符
+    if (j == give) {
+      j = 0
+      give++
+    }
+    sum += give
+  }
+  console.log(sum)
 </script>
+
 
 
 <!-- 7: 输入一个数，输出其是否是7的倍数或各个位上是否有7（25：NO，27：YES，21：YES) -->
@@ -1213,6 +1545,32 @@
   }
 </script>
 
+<!-- 7: 输入一个数，输出其是否是7的倍数或各个位上是否有7（25：NO，27：YES，21：YES) -->
+<script id="7" type="x">
+  // 这是一个没有副作用的函数，即 是一个返回值的函数
+  var isRelatedwith7 = function(n) {
+    if (n % 7 == 0) {
+      return true
+    } else {
+      while (n > 0) {
+        var digit = n % 10
+        if (digit == 7) {
+          return true
+        }
+        n = (n - digit) / 10
+      }
+      return false
+    }
+  }
+
+  var num = +prompt(" 输入一个数，输出其是否是7的倍数或各个位上是否有7")
+  // 由于函数调用是一个表达式，所以其是可以写到里面的
+  if (isRelatedwith7(num)) {
+    console.log("YES")
+  } else {
+    console.log("NO")
+  }
+</script>
 
 
 <!-- sort: 输入3个数，按从小到大顺序输出 -->
@@ -1244,10 +1602,10 @@
 
 
 <!-- narcissistic: 输入一个数判断其是否为水仙花数，输出"YES"/"NO" -->
-<!-- 水仙花数是指一个n位数（n>=3）,它的每个位上的数字的n次幂之和等于它
-本身 -->
+<!-- 水仙花数是指一个n位数（n>=3）,它的每个位上的数字的n次幂之和等于它本身 -->
+<!-- 建议不要使用a**b -> 这个计算会被直接转换为Math.power(a, b) -->
 <!-- 例如:1^3 + 5^3+ 3^3 = 153 -->
-<script id="narcissistic" type="x">
+<!-- <script id="narcissistic" type="x">
   var x = prompt("请输入一个数字，将判断其是否为水仙花数")
   var len = x.length
   var content = x.split("")
@@ -1256,12 +1614,42 @@
     result += Math.pow(content[i], len)
   }
   result == x?console.log("YES"):console.log("NO")
+</script> -->
+
+<script id="narcissistic" type="x">
+  var n = +prompt("请输入一个数字，将判断其是否为水仙花数")
+  var m = n
+  var width = 0
+ 
+  while (m > 0) {
+    width++
+    var digit = m % 10
+    m = (m - digit) / 10
+  }
+
+  m = n
+  var sum = 0
+  while (m > 0) {
+    var digit = m % 10
+    var product = 1
+    for (var i = 0; i < width; i++) {
+      product *= digit
+    }
+    sum += product
+    m = (m - digit) / 10
+  }
+
+  if (sum == n) {
+    console.log("YES")
+  } else {
+    console.log("NO")
+  }
 </script>
 
 
 <!-- narcissistics: 输出1000以内的水仙花数 -->
 <!-- 水仙花数最小就是三位数 -->
-<script id="narcissistics" type="x">
+<!-- <script id="narcissistics" type="x">
   var a, b, c;
   for (var i=100; i<1000; i++) {
     var a = parseInt(i%10)
@@ -1271,7 +1659,53 @@
       console.log(i)
     }
   }
+</script> -->
+
+
+
+<!-- narcissistics: 输出1000以内的水仙花数 -->
+<!-- 水仙花数是指一个n位数（n>=3）,它的每个位上的数字的n次幂之和等于它本身 -->
+<script id="narcissistics" type="x">
+  // 返回数值m在十进制下的位宽
+  var getDigitWidth = function(m) {
+    var width = 0
+    if (m == 0) {
+      return 1
+    }
+    while (m > 0) {
+      width++
+      var digit = m % 10
+      m = (m - digit) / 10
+    }
+    return width
+  }
+  // 返回a的n次方，n为整数
+  var power = function(a, n) {
+    var result = 1
+    for(var i = 0; i < n; i++) {
+      result *= a
+    }
+    return result
+  }
+
+  for(var i = 100; i < 1000; i++) {
+    var n = i
+    var m = n
+    var width = getDigitWidth(n)
+    
+    var sum = 0
+    while (m > 0) {
+      var digit = m % 10
+      sum += power(digit, width)
+      m = (m - digit) / 10
+    }
+    
+    if (sum == n) {
+      console.log(n)
+    }
+  }
 </script>
+  
 
 
 <!-- palindrom: 输入一个数，判断其是否为一个一个回文数"YES"/"NO" -->
@@ -1290,6 +1724,69 @@
   var n = prompt("请输入一个数，将判断其是否是回文数")
   console.log(isPalindrome(n)?"YES":"NO")
 </script>
+
+<script id="palindrom" type="x">
+  // 返回数值m在十进制下的位宽
+    var getDigitWidth = function(m) {
+    var width = 0
+    if (m == 0) {
+      return 1
+    }
+    while (m > 0) {
+      width++
+      var digit = m % 10
+      m = (m - digit) / 10
+    }
+    return width
+  }
+
+  // 返回a的n次方，n为整数
+  var power = function(a, n) {
+    var result = 1
+    for(var i = 0; i < n; i++) {
+      result *= a
+    }
+    return result
+  }
+
+  var isPalindrome = function(n) {
+    var width = getDigitWidth(n)
+    for(var i = 1; i < width / 2; i++) {
+      var right = Math.floor(n / power(10, i - 1)) % 10
+      var left = Math.floor(n / power(10, width - i)) % 10
+
+      if (right != left) {
+        return false
+      }
+    }
+    return true
+  }
+
+  var isPalindrome2 = function(n) {
+    var sum = 0
+    var m = n
+    while (n > 0) {
+      var digit = n % 10
+      sum = sum * 10 + digit
+      n = (n - digit) / 10
+    }
+
+    // if (sum == m) {
+    //   return true
+    // } else {
+    //   return false
+    // }
+    // ----优化----
+    return sum == m
+  }
+
+  var n = +prompt("请输入一个数，将判断其是否是回文数")
+  console.log(isPalindrome(n)?"YES":"NO")
+</script>
+
+
+
+
 
 
 <!-- weekday: 输入年份与月份，输出这此年此月的第一天为星期几（0对应周日，1对应周一） -->
@@ -1328,6 +1825,59 @@
   }
 </script>
 
+<!-- 
+<script id="complete-numbers" type="">
+  var isCompleteNumber1 = function(n) {
+    //  这是最简单的写法 但是这样若要判断10000是不是完全数，就需进行9999次的模运算
+    var sum = 0
+    for (var i = 1; i < n; i++) {
+      if (n % i == 0) {
+        sum += 1
+      }
+    }
+    return sum == n
+  }
+
+  // 因为约数是成对出现的，只需判断到根号n就可以了
+  var isCompleteNumber2 = function(n) {
+    var sum = 1
+    var sqrt_n = Math.sqrt(n)
+
+    for (var i = 2; i <= sqrt_n; i++) {
+      if (n % i == 0) {
+        if (i == n / i) {  // 平方根
+          sum += i
+        } else {   // 非平方根
+          sum = sum + i + (n / i)
+        }
+      }
+    }
+    return sum == n
+  }
+
+  // 优化
+  var isCompleteNumber3 = function(n) {
+    var sum = 1
+    var sqrt_n = Math.floor(Math.sqrt(n))
+    for (var i = 2; i < sqrt_n; i++) {
+      if (n % i == 0) {
+        sum = (sum+i+(n/i))
+      }
+    }
+    // if放外面 对于每一个固定的数字只判断一次（在最后的时候 再判断是否等于根号n）
+    if (sqrt_n * sqrt_n == n && sqrt_n != n) {
+      sum += sqrt_n
+    }
+    return sum == n
+  }
+
+  for (var i = 2; i < 1000; i++) {
+    if (isCompleteNumber3(i)) {
+      console.log(i)
+    }
+  }
+</script> -->
+
 
 <!-- complete-numbers: 输出1000以内的完数 -->
 <!-- 完数都是偶数 即2的倍数，且都是以6或8结尾 -->
@@ -1343,22 +1893,65 @@
 
 
 <!-- prime: 输入一个数判断其是否为素数，输出"YES"/"NO" -->
-<script id="prime" type="x">
-  function isPrimeNum(num) {
-    for (var i=2; i<num; i++) {
-      if (num%i==0) {
-        return false;
+<!-- <script id="prime" type="x">
+    var isPrime = function(n) {
+      if (n < 2) {
+        return false
       }
+      //  因为约数是成对出现的，所以这里的 i <= n/2 即可。 n >> 1 即 n/2 ； (位运算  移位的速度会更快一些) n右移一位；对于奇数 是减1除以2，对于偶数来说 直接就是右移运算
+      // var half = n / 2
+      var half = n >> 1 
+
+      for (var i = 2; i <= half; i++) {
+        if (n % i == 0) {
+          return false
+        }
+      }
+      return true
     }
-    return true
-  }
-  var n = +prompt("输入一个数，将判断其是否为素数")
-  if(n===1) {
-    console.log("NO")
-  } else {
-    console.log(isPrimeNum(n)?"YES":"NO")
-  }
+
+    var n = +prompt("输入一个数，将判断其是否为素数")
+    if(isPrime(n)) {
+      console.log("YES")
+    } else {
+      console.log("NO")
+    }
+</script> -->
+
+<!-- 继续优化 -->
+<!-- 只要2到n/2之间 有它的约数  就能判断其不是素数。 -> 约数一定是成对出现的--除去 根号n 是乘以其自身
+所以只需判断根号n以内是否有约数
+若在根号n以内找到一个约数，那么在根号n以外也一定能找到一个约数。-->
+<script id="prime" type="x">
+    var isPrime = function(n) {
+      if (n < 2) {
+        return false
+      }
+      // 对根号n 向下取整；若在根号n以内找不到约数 那么在根号n以外也一定找不到约数啦
+      var sqrt_n = Math.floor(Math.sqrt(n))
+
+      for (var i = 2; i <= sqrt_n; i++) {
+        if (n % i == 0) {
+          return false
+        }
+      }
+      return true
+    }
+
+    var n = +prompt("输入一个数，将判断其是否为素数")
+    if(isPrime(n)) {
+      console.log("YES")
+    } else {
+      console.log("NO")
+    }
 </script>
+ <!-- 若一个数不能整除2，那么一定也不能整除4,6,8,16...
+ 若一个数不能整除3，那么一定也不能整除9,12,15,18,21...
+ 若一个数不能整除5，那么一定也不能整除10,15,20,25...
+ ...
+ -> 实际上 只需除以 2到根号n 以内的素数(prime) 是否可以整除;若能整除 则不是素数，反之 是素数。
+ 如 若要判断28 是否是素数, 则判断2到5(根号26等于5点几)以内的素数 2,3,5 是否能整除28。 -->
+
 
 
 <!-- primes: 输出100以内的素数 -->
@@ -1379,11 +1972,72 @@
 
 
 <!-- itob: 输入一个数，输出其字符串形式 -->
-<script id="itob" type="x">
+<!-- <script id="itob" type="x">
   var n = prompt("请输入一个数，将输出其字符串形式")
   console.log(n)
+</script> -->
+
+<script id="itob2" type="x">
+  var n = +prompt("请输入一个数，将输出其字符串式")
+  var str = ""
+
+  while(n > 0) {
+    var digit = n % 10
+    if (n == 0) {
+      str = str + "0"
+    } else if (n == 1) {
+      str = str + "1"
+    } else if (n == 2) {
+      str = str + "2"
+    } else if (n == 3) {
+      str = str + "3"
+    } else if (n == 4) {
+      str = str + "4"
+    } else if (n == 5) {
+      str = str + "5"
+    } else if (n == 6) {
+      str = str + "6"
+    } else if (n == 8) {
+      str = str + "8"
+    } else if (n == 9) {
+      str = str + "9"
+    }
+    n = (n - digit) / 10
+  }
+  console.log(str)
+</script>
+  
+<script id="itob3" type="x">
+  var n = +prompt("请输入一个数，将输出其字符串式")
+  var str = ""
+  while(n > 0) {
+    var digit = n % 10
+    switch(digit) {
+      case 0: str = str + "0"; break;
+      case 1: str = str + "1"; break;
+      case 2: str = str + "2"; break;
+      case 3: str = str + "3"; break;
+      case 4: str = str + "4"; break;
+      case 5: str = str + "5"; break;
+      case 6: str = str + "6"; break;
+      case 7: str = str + "7"; break;
+      case 8: str = str + "8"; break;
+      case 9: str = str + "9"; break;
+    }
+    n = (n - digit) / 10
+  }
+  console.log(str)
 </script>
 
+<script id="itob4" type="x">
+  var str = ""
+  while(n > 0) {
+    var digit = n % 10
+    str = str + getCharFromDigit(n)
+    n = (n - digit) / 10
+  }
+  return str
+</script>
 
 <!-- lcf&lcm: 输入两个数，分别输出它们的最大公约数和最小公倍数 -->
 <script id="lcf&lcm" type="x">
@@ -1406,7 +2060,7 @@
 
 
 <!-- sqrt: 输入一个数，输出其平方根，精确到小数点后3位 -->
-<!-- <script id="sqrt" type="">
+<script id="sqrt" type="x">
   var n = +prompt("请输入一个数，将输出其平方根")
     for (var i = 0; i * i  < n ; i++);
     if (i * i == n) {
@@ -1427,4 +2081,31 @@
       }
       console.log(mid.toFixed(3))
     }
+</script>
+
+<!-- <script id="sqrt" type="">
+  var sqrt = function(n) {
+    for (var i = 0.00001; i < n; i += 0.000001) {
+      if (Math.abs(i * i - n) < 0.001) {
+        return i
+      }
+    }
+  }
+  var sqrt2 = function(n) {
+    var x = 2
+    for (var i = 0; i < 5; i++) {
+      x = x - (x * x - n) / (2 * x)
+    }
+    return x
+  }
+  var sqrt3 = function(n) {
+    var x = 2
+    x = x - (x * x - n) / (2 * x)
+    x = x - (x * x - n) / (2 * x)
+    x = x - (x * x - n) / (2 * x)
+    x = x - (x * x - n) / (2 * x)
+    x = x - (x * x - n) / (2 * x)
+    return x
+  }
+
 </script> -->
