@@ -1,18 +1,30 @@
 var rlydia = {
   // Array （59）
-  chunk: function(arr, size=1) {
-    let len = arr.length
-    let res = new Array(Math.ceil(len/size))
-    console.log(res)
-    let resIdx = 0
-    for (let i = 0; i < len; i+=size) {
+  chunk1: function(arr, size=1) {
+    var len = arr.length
+    var res = new Array(Math.ceil(len/size))
+    var resIdx = 0
+    for (var i = 0; i < len; i+=size) {
       res[resIdx++] = arr.slice(i, i+size)
     }
     return res
   },
 
+  chunk: function(arr, size=1) {
+    return arr.map((_, i) => (i % size === 0 ? arr.slice(i, i+size): null ))
+              .filter(Boolean)
+  },
 
-  compact: function() {},
+  compact1: function(arr) {
+    return arr.filter(it => it)
+  },
+
+  compact: function(arr) {
+    return arr.filter(Boolean)
+  },
+
+
+
   difference: function() {},
   differenceBy: function() {},
   differenceWith: function() {},
