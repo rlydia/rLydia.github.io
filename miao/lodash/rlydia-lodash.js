@@ -9,23 +9,32 @@ var rlydia = {
     }
     return res
   },
-
   chunk: function(arr, size=1) {
     return arr.map((_, i) => (i % size === 0 ? arr.slice(i, i+size): null ))
               .filter(Boolean)
   },
 
   compact1: function(arr) {
+    let res = []
+    for (let x of arr) {
+      if (x) {
+        res.push(x)
+      }
+    }
+    return res
+  },
+  compact2: function(arr) {
     return arr.filter(it => it)
   },
-
   compact: function(arr) {
     return arr.filter(Boolean)
   },
 
+  difference: function(arr, ...args) {
+    return arr.filter(it => args.every(arg => !arg.includes(it)))
+  },
 
 
-  difference: function() {},
   differenceBy: function() {},
   differenceWith: function() {},
   drop: function() {},

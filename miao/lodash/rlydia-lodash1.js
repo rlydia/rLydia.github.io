@@ -80,6 +80,15 @@ var rlydia = function() {
     return arr.filter(item => args.every(val => !val.includes(item)))
   }
 
+  function difference(arr, ...args) {
+    return arr.filter( function(item) {
+      console.log(args)
+      return args.every( function(val){ 
+        console.log(val)
+        return !val.includes(item)})
+    })
+  }
+
   function difference2(arr, ...args) {
     let arg = args.reduce((res, cur) => res.concat(cur))  // 这一步又将其合并为了数组- -
     return arr.filter(item => !arg.includes(item))
