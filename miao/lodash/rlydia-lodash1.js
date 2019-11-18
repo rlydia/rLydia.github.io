@@ -82,7 +82,6 @@ var rlydia = function() {
 
   function difference(arr, ...args) {
     return arr.filter( function(item) {
-      console.log(args)
       return args.every( function(val){ 
         console.log(val)
         return !val.includes(item)})
