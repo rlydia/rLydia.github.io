@@ -64,7 +64,7 @@ var rlydia = {
       }
     } else if (Object.prototype.toString.call(value) === "[object Object]"  && (   Object.prototype.toString.call(other) === "[object Object]")) {
       for (let key in value) {
-        if (other[key] !== value[key] || !isEqual(Object.keys(other), Object.keys(value))) {
+        if (other[key] !== value[key] || !this.isEqual(Object.keys(other), Object.keys(value))) {
           return false
         }
       }
@@ -95,10 +95,15 @@ var rlydia = {
     return toString.call(value) === "[object Array]"
   },
 
+  // 是否为空值
+  isNil: function(value) {
+    return value === undefined || value === null
+  },
+
   isMatch: function(obj, src) {
-    if (isEqual(obj, src)) return true
+    if (this.isEqual(obj, src)) return true
     for (let prop in src) {
-      if (!(prop in obj) || !isEqual(obj[prop], src[prop])) {
+      if (!(prop in obj) || !this.isEqual(obj[prop], src[prop])) {
         return false
       }
       return true
@@ -163,11 +168,32 @@ var rlydia = {
 
   // differenceWith: function() {},
 
-  drop: function() {},
+  drop: function(arr, n = 1) {
+    return arr.slice(n)
+  },
+
+  dropRight: function(arr, n = 1) {
+    return arr.slice(0, n ? -n : arr.length)
+  },
+
+  dropRightWhile: function(arr, predicate = this.identity) {
+    predicate = this.iteratee(predicate)
+    for (let i = arr.length; i >= 0; i--) {
+      if (!this.isNil(arr[i]) && !predicate(arr[i])) {
+        return arr.slice(0, i + 1)
+      }
+    }
+  },
+
+  dropWhile: function(arr, predicate=this.identity) {
+    predicate = iteratee(predicate)
+    for (let i = 0; i < arr.length; i++) {
+      if (!this.isNil(arr[i]) && !predicate(arr[i]) {
+        return arr.slice(i)
+      }
+    }
+  },
   
-  dropRight: function() {},
-  dropRightWith: function() {},
-  dropWhile: function() {},
   fill: function() {},
   findIndex: function() {},
   findLastIndex: function() {},
