@@ -148,23 +148,23 @@ var rlydia = {
 
   // differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor);
   differenceBy: function(arr, ...args) {
-    debugger;  
-    let predicate   
-    let last = arguments[arguments.length - 1]   // Math.floor
-    if (typeof last === "string" || typeof last === "function") {
-      predicate = this.iteratee(args.pop())  
+    let predicate
+    let last = arguments[arguments.length - 1]
+    if (typeof last === 'string' || typeof last === 'function') {
+      predicate = this.iteratee(args.pop())
     } else {
       predicate = this.identity
     }
-    let values = [].concat(...args)   //  [2.3, 3.4]
-
+    let values = [].concat(...args)
     let newArgs = values.map(it => predicate(it))
     return arr.filter(it => !newArgs.includes(predicate(it)))
   },
 
 
-  differenceWith: function() {},
+  // differenceWith: function() {},
+
   drop: function() {},
+  
   dropRight: function() {},
   dropRightWith: function() {},
   dropWhile: function() {},
@@ -179,45 +179,45 @@ var rlydia = {
   indexOf: function() {},
   initial: function() {},
   intersection: function() {},
-  intersectionBy: function() {},
-  intersectionWith: function() {},
+  // intersectionBy: function() {},
+  // intersectionWith: function() {},
   join: function() {},
   last: function() {},
   lastIndexOf: function() {},
-  nth: function() {},
+  // nth: function() {},
   pull: function() {},
-  pullAll: function() {},
-  pullAllBy: function() {},
-  pullAllWith: function() {},
+  // pullAll: function() {},
+  // pullAllBy: function() {},
+  // pullAllWith: function() {},
   reverse: function() {},
   sortedIndex: function() {},
-  sortedIndexBy: function() {},
-  sortedIndexOf: function() {},
-  sortedLastIndex: function() {},
-  sortedLastIndexBy: function() {},
-  sortedLastIndexOf: function() {},
-  sortedUniq: function() {},
-  sortedUniqBy: function() {},
-  tail: function() {},
-  take: function() {},
-  takeRight: function() {},
-  takeRightWhile: function() {},
-  takeWhile: function() {},
+  // sortedIndexBy: function() {},
+  // sortedIndexOf: function() {},
+  // sortedLastIndex: function() {},
+  // sortedLastIndexBy: function() {},
+  // sortedLastIndexOf: function() {},
+  // sortedUniq: function() {},
+  // sortedUniqBy: function() {},
+  // tail: function() {},
+  // take: function() {},
+  // takeRight: function() {},
+  // takeRightWhile: function() {},
+  // takeWhile: function() {},
   union: function() {},
   unionBy: function() {},
-  unionWith: function() {},
+  // unionWith: function() {},
   uniq: function() {},
   uniqBy: function() {},
-  uniqWith: function() {},
+  // uniqWith: function() {},
   unzip: function() {},
-  unzipWith: function() {},
+  // unzipWith: function() {},
   withOut: function() {},
   xor: function() {},
-  xorBy: function() {},
-  xorWith: function() {},
+  // xorBy: function() {},
+  // xorWith: function() {},
   zip: function() {},
-  zipObject: function() {},
-  zipObjectDeep: function() {},
-  zipWith: function() {},
+  // zipObject: function() {},
+  // zipObjectDeep: function() {},
+  // zipWith: function() {},
 
 }
