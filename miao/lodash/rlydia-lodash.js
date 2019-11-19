@@ -139,4 +139,19 @@ var rlydia = {
   drop: function(arr, n=1) {
     return arr.slice(n)
   },
+
+  dropRight: function(arr, n=1) {
+    return arr.slice(0, n ? -n : arr.length)
+  },
+
+  dropRightWhile: function(arr, predicate = this.identity) {
+    predicate = this.iteratee(predicate)
+    for (let i = 0; i < arr.length; i++) {
+      if (!predicate(arr[i], i, arr)) {
+        return arr.slice(i)
+      }
+    }
+  }
+
+  
 };
