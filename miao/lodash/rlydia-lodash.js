@@ -83,18 +83,17 @@ var rlydia = {
 
   isMatch: function(obj, src) {
     if (obj === src) return true;
-    if (obj == null || typeof obj != "object" || typeof src != "object") {
-      return false
-    }
+    if (obj == null || typeof obj != "object" || typeof src != "object")
+      return false;
     const keysObj = Object.keys(obj),
-      keysSrc = Object.key(src);
+      keysSrc = Object.keys(src);
     for (const key of keysSrc) {
-      if (!keysObj.includes(key) || !this.isMatch(obj[key], src[key])) {
-        return false
-      }
+      if (!keysObj.includes(key) || !this.isMatch(obj[key], src[key]))
+        return false;
     }
-    return true
-  }, 
+    return true;
+  },
+
 
   matchesProperty: function(obj, src) {
     return function(obj) {
