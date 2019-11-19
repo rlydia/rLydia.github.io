@@ -144,23 +144,7 @@ var rlydia = {
     return arr.slice(0, n ? -n : arr.length)
   },
 
-  dropRightWhile: function(arr, predicate = this.identity) {
-    predicate = this.iteratee(predicate)
-    for (let i = arr.length - 1; i < arr.length; i--) {
-      if (!predicate(arr[i], i, arr)) {
-        return arr.slice(0, i+1)
-      }
-    }
-  },
 
-  dropWhile: function(arr, predicate = this.identity){
-    predicate = this.iteratee(predicate)
-    for (let i = 0; i < arr.length; i++) {
-      if (!predicate(arr[i], i, arr)) {
-        return arr.slice(i)
-      }
-    }
-  },
 
   fill: function(arr, value, start = 0, end = arr.length) {
     for (let i = start; i < end; i++) {
@@ -178,4 +162,6 @@ var rlydia = {
     }
     return -1
   },
+  
+
 };
