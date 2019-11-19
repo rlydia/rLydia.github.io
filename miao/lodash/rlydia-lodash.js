@@ -51,8 +51,7 @@ var rlydia = {
   },
 
   isObject: function(value) {
-    let toString = Object.prototype.toString
-    return (typeof value === "object" || typeof value === "funtion") && (toString.call(value) === "[object Object]" || toString.call(value) === "[object Array]" || toString.call(value) === "[object Function]" || toString.call(value) === "[object RegExp]")
+    return value instanceof Object
   },
 
   isMatch: function(obj, src) {
@@ -68,42 +67,29 @@ var rlydia = {
   },
 
 
-  isEqual: function(value, other) {
-    if (value !== value && other !== other) {
-      return true
-    } else if (this.isNumber(value) && this.isNumber(other) || this.isString(value) && this.isString(other)) {
-      if (value === other) {
-        return true
-      }
+  isEqual: function(a, b) {
+    if (a === b) return true
+    if (a === null || b === null || typeof a != "object" || typeof b != "object") {
       return false
-    } else if (this.isArray(value) && this.isArray(other)) {
-      if (value.length !== other.length) {
-        return false
-      } else {
-        for (let i=0; i < value.length; i++) {
-          if (this.isObject(other[i]) && this.isMatch(value[i], other[i]) && this.isMatch(other[i], value[i])) {
-            return true
-          } else {
-            return false
-          }
-        }
-        return true
-      }
-    } else if (Object.prototype.toString.call(value) === "[object Object]" && (Object.prototype.toString.call(other) === "[object Object]")) {
-      for (let key in value) {
-        if (other[key] !== value[key] || !this.isEqual(Object.keys(other), Object.keys(value))) {
-          return false
-        }
-      }
-      return true
     }
-    return false
+    const keysA = Object.keys(a), 
+      keysB = Object.keys(b);
+    if (keysA.length != keysB.length) return false;
+    for (const key of keysA) {
+      if (!keysB.includes(key) || !this.isEqual(a[key], b[key])) return false;
+    }
+    return true;
   },
 
   isMatch: function(obj, src) {
-    if (this.isEqual(obj, src)) return true
-    for (let prop in src) {
-      if (!(prop in obj) || !this.isEqual(obj[prop], src[prop])) {
+    if (obj === src) return true;
+    if (obj == null || typeof obj != "object" || typeof src != "object") {
+      return false
+    }
+    const keysObj = Object.keys(obj),
+      keysSrc = Object.key(src);
+    for (const key of keysSrc) {
+      if (!keysObj.includes(key) || !this.isMatch(obj[key], src[key])) {
         return false
       }
     }
@@ -161,5 +147,9 @@ var rlydia = {
     let values = [].concat(...args)  
     let newArgs = values.map(item => predicate(item))
     return arr.filter(item => !newArgs.includes(predicate(item)))
+  },
+
+  drop: function(arr, n=1) {
+    return arr.slice(n)
   },
 };
