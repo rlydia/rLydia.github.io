@@ -161,4 +161,15 @@ var rlydia = {
       }
     }
   },
+
+  fill: function(arr, value, start = 0, end = arr.length) {
+    for (let i = start; i < end; i++) {
+      arr[i] = value
+    }
+    return arr
+  },
+
+  findIndex: function(arr, predicate = this.identity, fromIndex=0) {
+    
+  },
 };
