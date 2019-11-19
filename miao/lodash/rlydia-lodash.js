@@ -170,6 +170,12 @@ var rlydia = {
   },
 
   findIndex: function(arr, predicate = this.identity, fromIndex=0) {
-    
+    predicate = this.iteratee(predicate)
+    for (let i = fromIndex; i < arr.length; i++) {
+      if (predicate(arr[i])) {
+        return i
+      }
+    }
+    return -1
   },
 };
