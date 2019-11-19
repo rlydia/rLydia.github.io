@@ -55,15 +55,16 @@ var rlydia = {
   },
 
   isMatch: function(obj, src) {
-    if (this.isEqual(obj, src)) {
-      return true
+    if (obj === src) return true;
+    if (obj == null || typeof obj != "object" || typeof src != "object")
+      return false;
+    const keysObj = Object.keys(obj),
+      keysSrc = Object.keys(src);
+    for (const key of keysSrc) {
+      if (!keysObj.includes(key) || !this.isMatch(obj[key], src[key]))
+        return false;
     }
-    for (let prop in src) {
-      if (!(prop in obj) || !this.isEqual(obj[prop], src[prop])) {
-        return false
-      }
-    }
-    return true
+    return true;
   },
 
 
@@ -77,19 +78,6 @@ var rlydia = {
     if (keysA.length != keysB.length) return false;
     for (const key of keysA) {
       if (!keysB.includes(key) || !this.isEqual(a[key], b[key])) return false;
-    }
-    return true;
-  },
-
-  isMatch: function(obj, src) {
-    if (obj === src) return true;
-    if (obj == null || typeof obj != "object" || typeof src != "object")
-      return false;
-    const keysObj = Object.keys(obj),
-      keysSrc = Object.keys(src);
-    for (const key of keysSrc) {
-      if (!keysObj.includes(key) || !this.isMatch(obj[key], src[key]))
-        return false;
     }
     return true;
   },
